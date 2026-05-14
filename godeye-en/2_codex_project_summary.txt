@@ -1,0 +1,435 @@
+Perform a context analysis of this project and create a detailed summary file.
+
+IMPORTANT:
+This task is ONLY to understand, map, and document the project.
+DO NOT modify code.
+DO NOT fix issues.
+DO NOT suggest improvements.
+DO NOT create features.
+DO NOT refactor.
+DO NOT commit.
+DO NOT give opinions.
+DO NOT provide a correction plan.
+DO NOT perform a critical audit.
+
+Your goal is to create a technical, neutral, complete, and faithful summary of the current project state.
+
+==================================================
+1. OBJECTIVE
+==================================================
+
+Create or update a file named:
+
+<project_name>_summary.md
+
+Use the real project name whenever it can be identified.
+
+Examples:
+- calculator_summary.md
+- athletium_summary.md
+- financium_summary.md
+- caster_admin_summary.md
+
+If you cannot identify the name with confidence, use:
+
+project_summary.md
+
+The file must serve as the project's technical memory for future interactions, allowing development to continue without rereading the entire project.
+
+==================================================
+2. IMPORTANT RULES
+==================================================
+
+- Be factual.
+- Be neutral.
+- Do not give opinions.
+- Do not criticize.
+- Do not classify quality.
+- Do not recommend fixes.
+- Do not suggest new features.
+- Do not say “should”.
+- Do not say “recommended”.
+- Do not say “it would be better”.
+- Do not create a roadmap.
+- Do not invent information.
+- If something is unclear, write “not identified”.
+- If something is inferred, mark it as “inference”.
+- If something comes directly from files, describe it as fact.
+
+This summary is NOT an audit.
+This summary is NOT an improvement plan.
+This summary is NOT a bug list.
+This summary is NOT a problem report.
+
+It is only objective documentation of the current project state.
+
+==================================================
+3. MANDATORY PREPARATION
+==================================================
+
+Before writing the summary:
+
+1. Read the general project structure.
+2. Identify the main language.
+3. Identify framework, runtime, or platform.
+4. Read existing documentation files, if any:
+   - README
+   - docs/
+   - *_summary.md
+   - *_tasks.md
+   - CHANGELOG
+   - TODO
+   - architecture.md
+   - user_preferences.md
+   - package/config files
+5. Read configuration files:
+   - pubspec.yaml
+   - package.json
+   - requirements.txt
+   - pyproject.toml
+   - build.gradle
+   - settings.gradle
+   - docker-compose.yml
+   - Dockerfile
+   - .env.example
+   - l10n.yaml
+   - analysis_options.yaml
+   - tsconfig.json
+   - vite.config
+   - any equivalent file according to the stack
+6. Identify main modules by folder structure.
+7. Identify main flows from code and documentation.
+8. Identify main dependencies.
+9. Identify persistence, state management, navigation, integrations, and build when applicable.
+
+Do not run destructive commands.
+Do not modify files other than the requested summary file.
+
+==================================================
+4. REQUIRED SUMMARY CONTENT
+==================================================
+
+The <project_name>_summary.md file must contain exactly these sections, adapting the content to the project:
+
+# Project Summary — <project_name>
+
+## 1. Project identification
+- Project name:
+- Project type:
+- Apparent objective:
+- Target platform(s):
+- Observed current state:
+- Main language:
+- Main framework:
+- Package/build manager:
+- Runtime environment:
+
+## 2. General description
+Objectively describe what the project currently does.
+
+Do not describe what it should do.
+Do not describe future ideas.
+Do not describe improvements.
+Only describe what exists in the project.
+
+## 3. Identified technical stack
+List identified technologies, libraries, and tools.
+
+Separate by categories when applicable:
+
+### Language
+- ...
+
+### Framework
+- ...
+
+### UI
+- ...
+
+### State/state management
+- ...
+
+### Persistence/database
+- ...
+
+### Navigation/routes
+- ...
+
+### Network/APIs
+- ...
+
+### Authentication
+- ...
+
+### Internationalization
+- ...
+
+### Tests
+- ...
+
+### Build/release
+- ...
+
+### Other relevant dependencies
+- ...
+
+If a category does not exist or was not identified, write:
+- Not identified.
+
+## 4. Folder structure
+Document the main folder structure.
+
+For each relevant folder, include:
+- path
+- apparent purpose
+- main files or subfolders
+
+Format:
+
+### /path
+Objective description of the purpose.
+
+Main files/subfolders:
+- file_or_folder — apparent function
+
+Do not list irrelevant build/cache files unless they are important to understand the project.
+
+## 5. Main files
+List the most important project files.
+
+For each file:
+- path
+- apparent function
+- relationship with the project
+
+Format:
+
+### path/to/file
+- Function:
+- Factual notes:
+
+Do not include quality judgments.
+
+## 6. Observed architecture
+Describe the current architectural organization.
+
+Include, if identified:
+- architectural pattern used
+- separation by layers
+- separation by features
+- use of services/controllers/providers/notifiers/repositories
+- where models are stored
+- where screens are stored
+- where business rules are stored
+- where external integrations are stored
+- where persistence is stored
+
+If the pattern is not clear, write:
+“The architectural pattern was not explicitly identified; the observed organization is...”.
+
+## 7. Existing modules and features
+List the modules/features that currently exist.
+
+For each module:
+
+### Module name
+- Path(s):
+- What it does:
+- Related screens:
+- Data used:
+- Internal dependencies:
+- External dependencies:
+- Factual notes:
+
+Do not suggest improvements.
+Do not point out problems.
+Only document.
+
+## 8. Main identified flows
+List the project's main flows.
+
+For each flow:
+
+### Flow name
+- Objective:
+- Input:
+- Processing:
+- Output/result:
+- Involved files:
+- Persisted data, if any:
+- Integrations used, if any:
+
+Only describe existing flows or flows clearly inferable from code.
+
+## 9. Data models
+List relevant models, entities, or data structures.
+
+For each model:
+
+### Model name
+- Path:
+- Main fields:
+- Purpose:
+- Relationships with other models:
+- Persistence:
+- Factual notes:
+
+If the project has no formal models, describe equivalent structures.
+
+## 10. Persistence and storage
+Describe how the project stores data.
+
+Include:
+- local/remote database
+- local files
+- cache
+- settings
+- migrations/versioning, if any
+- seeders/initial data, if any
+- import/export, if any
+
+Do not evaluate whether it is right or wrong.
+Only document.
+
+## 11. External integrations
+List integrations with:
+- APIs
+- external services
+- sensors
+- native plugins
+- SDKs
+- external authentication
+- external files
+- third-party services
+
+For each integration:
+- name
+- purpose
+- related files
+- data sent/received
+- required permissions, if any
+
+## 12. Internationalization and text
+Describe whether the project has language/i18n support.
+
+Include:
+- translation files
+- identified languages
+- tool used
+- where text appears to be defined
+
+Do not point out translation issues.
+Only record the existing structure.
+
+## 13. Build and execution configuration
+Document how the project appears to be executed.
+
+Include:
+- identified available commands
+- scripts
+- build configuration
+- targets/platforms
+- registered assets
+- code generation, if any
+- environment variables, if an example exists
+
+Do not invent commands.
+Only record commands found in documentation/configuration.
+
+## 14. Existing tests
+Document existing tests.
+
+Include:
+- test structure
+- types of tests found
+- test files
+- identified covered areas
+
+Do not evaluate coverage.
+Do not recommend tests.
+Only document what exists.
+
+## 15. Existing documentation
+List documentation found.
+
+For each file:
+- path
+- subject
+- apparent purpose
+
+## 16. Current project state
+Describe the observed current state based on facts.
+
+Acceptable examples:
+- “The project has screens for X, Y, and Z.”
+- “There are test files under /test.”
+- “The project uses local database X.”
+- “There is documentation under /docs.”
+- “Configurations for Android were identified.”
+
+Do not use evaluative phrases like:
+- “it is well structured”
+- “it is weak”
+- “it needs improvement”
+- “it is not ready”
+
+## 17. Unidentified information
+List important items that could not be identified in the project.
+
+Format:
+- Unidentified item:
+- Where it was searched:
+- Note:
+
+## 18. Project glossary
+List project-specific terms and the apparent meaning of each one.
+
+Format:
+- Term:
+- Apparent meaning:
+- Where it appears:
+
+## 19. Continuity summary
+Write an objective synthesis so a future session can continue the project.
+
+It must contain:
+- what the project is
+- main stack
+- main modules
+- where to start reading
+- most important files
+- identified commands
+- relevant documentation
+
+No opinion.
+No recommendation.
+No action plan.
+
+==================================================
+5. FINAL RESPONSE FORMAT
+==================================================
+
+After creating/updating the file, respond only with:
+
+1. Name of the created/updated file.
+2. Brief list of included sections.
+3. Objective note if any important information was not identified.
+
+Do not include an audit.
+Do not include a correction plan.
+Do not include suggestions.
+Do not include features.
+Do not include opinions.
+
+==================================================
+6. CONFIDENCE CONDITION
+==================================================
+
+If you are not at least 90% confident about the project name, use “project_summary.md”.
+
+If you are not at least 90% confident about any information, mark it as:
+“not identified”
+or
+“inference”.
+
+Never invent data to complete the summary.

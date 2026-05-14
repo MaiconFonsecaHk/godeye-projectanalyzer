@@ -1,0 +1,855 @@
+Activate “God Eye” mode on this project.
+
+Do not change anything. Diagnosis only.
+
+I want a complete, extremely critical and detailed audit, as if 100 QAs + architects + senior engineers + UX + security + performance + product specialists were analyzing everything.
+
+Look for real bugs, future bugs, inconsistencies, hidden risks, data problems, UX, architecture, performance, security, tests, i18n, build, release, and product issues.
+
+Cite files/lines, differentiate certainty from hypothesis, bug from product decision, immediate risk from technical debt.
+
+Deliver a prioritized report in P0/P1/P2/P3, with evidence, impact, probable cause, recommended correction, risk of not fixing, estimated effort, and a correction plan by deliveries.
+
+Do not apply fixes until I approve.
+
+
+
+
+Execute a total audit of this project in “God Eye” mode.
+
+I want you to analyze the entire project with the maximum rigor possible, as if a team composed of:
+- 100 manual QAs
+- 100 automated QAs
+- software architects
+- senior engineers
+- security specialists
+- performance specialists
+- UX/UI specialists
+- product specialists
+- database specialists
+- testing specialists
+- DevOps/release specialists
+- real beta testers
+- beginner users
+- advanced users
+were investigating everything at the same time.
+
+IMPORTANT:
+DO NOT apply fixes.
+DO NOT modify files.
+DO NOT refactor.
+DO NOT commit.
+DO NOT “improve” anything yet.
+Your task is ONLY to investigate, map, diagnose, prioritize, and deliver an extremely detailed, technical, critical, and actionable report.
+
+The analysis must be deep, broad, and rigorous.
+I want you to look for obvious problems, hidden problems, inconsistencies, future risks, fragile decisions, bugs that have not appeared yet, bottlenecks that will appear with real data, UX failures, architecture problems, technical debt, and anything that may affect quality, trust, maintenance, monetization, or launch.
+
+If something is certain, mark it as certainty.
+If something is a hypothesis, mark it as hypothesis.
+If something depends on real testing, mark it as “requires validation on real device/environment”.
+If something is a product decision, do not automatically treat it as a bug; explain the options.
+
+==================================================
+0. MANDATORY PREPARATION
+==================================================
+
+Before analyzing:
+1. Read the full project structure.
+2. Identify:
+   - language
+   - framework
+   - architecture
+   - target platforms
+   - patterns used
+   - main libraries
+   - state management system
+   - persistence
+   - navigation
+   - internationalization
+   - external integration
+   - build/deploy
+3. Read documentation files, if they exist:
+   - README
+   - docs/
+   - *_summary.md
+   - *_tasks.md
+   - tasks.md
+   - CHANGELOG
+   - user_preferences.md
+   - architecture.md
+   - TODO
+   - configs
+4. Understand the product objective before judging.
+5. Run safe diagnostic commands when applicable:
+   - analyzer/linter
+   - tests
+   - debug build
+   - code generation, only if necessary for validation
+6. Do not make changes without my authorization.
+
+If any command cannot be executed, explain:
+- which command
+- why it did not run
+- what risk this leaves in the analysis
+
+==================================================
+1. AUDIT OBJECTIVE
+==================================================
+
+Find and classify problems in all these areas:
+
+- functional bugs
+- visual bugs
+- possible crashes
+- data loss
+- data duplication
+- data inconsistency
+- planned vs executed data
+- wrong business rules
+- incomplete flows
+- unhandled edge cases
+- poorly handled permissions
+- poor empty states
+- poor error states
+- poor loading/synchronization
+- confusing UX
+- broken UI
+- wrong texts
+- hard-coded texts
+- broken encoding
+- inconsistent i18n
+- accessibility problems
+- responsiveness problems
+- performance problems
+- expensive queries
+- N+1 queries
+- improper in-memory filtering
+- excessive rebuilds
+- calculations inside UI
+- fragile architecture
+- excessive coupling
+- duplicated logic
+- oversized services/notifiers/controllers
+- domain rules in UI
+- poorly defined models
+- persistence without migration/versioning
+- fragile seeders
+- problematic dependencies
+- security problems
+- privacy problems
+- sensitive logs
+- unsafe import/export
+- weak validation
+- insufficient tests
+- fragile build/release
+- beta risks
+- monetization risks
+- future maintenance risks
+
+==================================================
+2. THINKING MODE
+==================================================
+
+Analyze as:
+
+1. Manual QA:
+   - “What breaks if I use this as a normal user?”
+
+2. Beta tester:
+   - “What would make me uninstall the app?”
+
+3. Senior engineer:
+   - “Which part will be painful to maintain?”
+
+4. Architect:
+   - “Which decision will limit growth?”
+
+5. Data specialist:
+   - “Are these numbers trustworthy?”
+
+6. UX specialist:
+   - “Does the user understand what they are seeing?”
+
+7. Performance specialist:
+   - “What will become slow after months of use?”
+
+8. Security specialist:
+   - “Where can data leak, corrupt, or accept dangerous input?”
+
+9. Product specialist:
+   - “What affects trust, retention, monetization, and launch?”
+
+10. Non-technical user:
+   - “Could I use this without explanation?”
+
+11. Advanced user:
+   - “Would I trust the data and metrics?”
+
+==================================================
+3. ANALYSIS LAYERS
+==================================================
+
+Analyze the project in layers.
+
+--------------------------------------------------
+LAYER A — Overview
+--------------------------------------------------
+
+Deliver:
+- apparent project objective
+- stack
+- target platforms
+- general architecture
+- main modules
+- maturity state
+- strengths
+- fragile points
+- overall risk
+- general verdict:
+  - ready for internal use
+  - ready for closed beta
+  - almost ready
+  - needs important corrections
+  - high risk
+
+--------------------------------------------------
+LAYER B — Architecture
+--------------------------------------------------
+
+Check:
+- folder organization
+- separation by features/modules
+- clarity of responsibilities
+- coupling
+- cross-dependencies
+- duplication of business logic
+- domain logic inside UI
+- oversized services
+- bloated providers/controllers/notifiers
+- giant widgets
+- models with too much responsibility
+- absence of domain layer
+- absence of testable helpers
+- inconsistent patterns
+- dead code
+- important TODOs/FIXMEs
+
+For each finding:
+- file
+- approximate line
+- evidence
+- impact
+- probable cause
+- suggestion
+- priority
+
+--------------------------------------------------
+LAYER C — Main flows
+--------------------------------------------------
+
+Identify the product's main flows.
+
+For each flow, analyze:
+- happy path
+- invalid input
+- cancellation
+- loading
+- error
+- permission denied
+- no internet
+- empty data
+- old data
+- corrupted data
+- closing the app midway
+- reopening the app
+- going back
+- duplicated action
+- double tap
+- rotation/small screen
+- flow in another language
+- persistence
+- recovery
+
+Classify each flow:
+- OK
+- fragile
+- broken
+- inconsistent
+- needs real testing
+- not covered by tests
+
+--------------------------------------------------
+LAYER D — Data and persistence
+--------------------------------------------------
+
+Deeply analyze:
+- models
+- local/remote database
+- migrations
+- seeders
+- versioning
+- backward compatibility
+- stable IDs
+- catalog update
+- legacy data
+- upsert
+- duplicates
+- safe deletion
+- planned vs executed data
+- local vs external data
+- timezone
+- date filters
+- aggregations
+- metrics
+- cache
+- synchronization
+- data loss
+- duplicated records
+- fallback for old data
+
+Look for:
+- loading everything and filtering in memory
+- N+1 queries
+- different screens calculating the same metric in different ways
+- old history that never receives correction
+- seeders that do not update already installed data
+- absence of catalog version
+- absence of migration
+- lack of validation before persisting
+- possibility of impossible data
+
+--------------------------------------------------
+LAYER E — Metrics and information consistency
+--------------------------------------------------
+
+Check whether displayed metrics are trustworthy.
+
+For each metric:
+- definition
+- data source
+- formula
+- screens where it appears
+- whether it appears with the same meaning everywhere
+- whether it mixes sources
+- whether it sums duplicated data
+- whether it considers timezone
+- whether it handles missing data
+- whether it differentiates real value, estimate, and fallback
+- whether the text explains it correctly
+
+Examples:
+- volume
+- calories
+- steps
+- duration
+- streak
+- frequency
+- heatmap
+- levels
+- progress
+- history
+- daily totals
+- external data
+- local data
+
+Classify:
+- reliable
+- partially reliable
+- misleading
+- inconsistent
+- needs real validation
+
+--------------------------------------------------
+LAYER F — Performance
+--------------------------------------------------
+
+Look for:
+- heavy queries
+- in-memory filters
+- N+1
+- repeated calculations
+- repeated parsing
+- excessive rebuilds
+- duplicated providers
+- widgets that recalculate too much
+- lists without lazy loading
+- heavy images/assets
+- expensive animations
+- heavy synchronous operations
+- startup bottlenecks
+- dashboard screen bottlenecks
+- bottlenecks that only appear after months of use
+
+For each finding:
+- current risk
+- future risk
+- impact estimate
+- simple suggestion
+- robust suggestion
+- priority
+
+--------------------------------------------------
+LAYER G — UI/UX
+--------------------------------------------------
+
+Analyze as a real user:
+- visual hierarchy
+- clarity
+- main buttons
+- information overload
+- cluttered screens
+- empty screens
+- errors without guidance
+- loading without feedback
+- confusing refresh
+- overlapping buttons
+- bottom overflow
+- cut text
+- layout on small screens
+- spacing
+- contrast
+- icon consistency
+- touch target size
+- navigation
+- back/cancel
+- snackbars
+- dialogs
+- bottom sheets
+- success states
+- failure states
+- overly technical language
+- numbers without context
+- onboarding
+- basic accessibility
+
+Look especially for:
+- UI that looks like a bug even when technically correct
+- values that look absurd without explanation
+- buttons that appear to do nothing
+- empty states that do not guide
+- messages that are too generic
+
+--------------------------------------------------
+LAYER H — Internationalization, texts, and encoding
+--------------------------------------------------
+
+Scan for:
+- hard-coded strings
+- texts in the wrong language
+- PT-BR/EN mixing
+- broken encoding
+- mojibake
+- wrong pluralization
+- missing translations
+- inconsistent names
+- overly technical terms
+- user-facing text inside code
+- TODO/FIXME visible to the user
+
+Look for patterns:
+- Ã
+- Â
+-  
+- â€
+- nÃ
+- Ã§
+- Ã£
+- Ã©
+- Ã¡
+- Ã³
+- Ã­
+- Ãº
+- explicaÃ
+- nÃ£o
+- usuÃ
+- configuraÃ
+- atualizaÃ
+
+Deliver:
+- file
+- line
+- broken text
+- suggested correction
+- whether it should go to i18n
+
+--------------------------------------------------
+LAYER I — Security and privacy
+--------------------------------------------------
+
+Analyze:
+- tokens
+- keys
+- secrets
+- sensitive logs
+- personal data
+- excessive permissions
+- file imports
+- file exports
+- malicious JSON
+- path traversal
+- unvalidated data
+- crash from invalid file
+- insecure storage
+- data in backup
+- platform policy
+- insecure dependencies
+- HTTP without TLS
+- hard-coded URLs
+- attachment/file handling
+- Android/iOS permissions
+- risk of exposing user data
+
+Classify:
+- critical
+- high
+- medium
+- low
+
+--------------------------------------------------
+LAYER J — Tests
+--------------------------------------------------
+
+Analyze:
+- existing tests
+- tests that truly validate rules
+- superficial tests
+- missing critical coverage
+- domain rules without tests
+- important widgets without tests
+- integration without tests
+- persistence without tests
+- import/export without tests
+- permissions without tests
+- known failures without regression tests
+
+Deliver:
+- good existing tests
+- missing P0 tests
+- missing P1 tests
+- recommended tests by module
+- mandatory manual tests
+- tests on real device
+- regression matrix
+
+--------------------------------------------------
+LAYER K — Dependencies, build, and release
+--------------------------------------------------
+
+Analyze:
+- dependencies
+- versions
+- conflicts
+- abandoned packages
+- permissions
+- Android/iOS/Web/Desktop configs
+- debug/release build
+- assets
+- code generation
+- generated files
+- lints
+- flavors
+- signing
+- minSdk/targetSdk
+- ProGuard/R8, if applicable
+- app size
+- missing assets
+- release configuration
+- store compatibility
+
+Deliver:
+- immediate risks
+- future risks
+- recommendations before beta/release
+
+--------------------------------------------------
+LAYER L — Suspicious code and technical debt
+--------------------------------------------------
+
+Look for:
+- long functions
+- long classes
+- many nested ifs
+- duplicated logic
+- copied logic
+- outdated comments
+- confusing names
+- implicit dependency
+- magic numbers
+- magic strings
+- dangerous fallback
+- try/catch that swallows errors
+- excessive logs
+- insufficient logs
+- poorly controlled global state
+- code that “works by coincidence”
+- code that is hard to test
+
+Classify:
+- tolerable debt
+- dangerous debt
+- debt that will block growth
+
+--------------------------------------------------
+LAYER M — Product, monetization, and trust
+--------------------------------------------------
+
+Analyze:
+- what affects user trust
+- what would make the user uninstall
+- what hurts monetization
+- what must be flawless before charging
+- what can wait
+- which features appear differentiated
+- which features appear unfinished
+- where the app may look amateur
+- where the app looks premium
+- where numbers/data may generate distrust
+- where there is risk of overpromising
+
+Classify:
+- blocks launch
+- blocks beta
+- affects conversion
+- affects retention
+- future polish
+
+==================================================
+4. MANDATORY PRIORITIZATION
+==================================================
+
+Classify each finding:
+
+P0 — Fix immediately
+- crash
+- data loss
+- serious false data
+- serious security/privacy issue
+- broken user-facing text
+- broken main flow
+- broken build
+- unusable app
+- behavior that destroys trust
+
+P1 — Fix before beta/release
+- important functional bug
+- data inconsistency
+- confusing UX in important flow
+- problematic performance in central screen
+- fragile persistence
+- poorly handled permissions
+- missing critical test
+- catalog/data that does not update
+
+P2 — Important improvements
+- relevant technical debt
+- preventive performance
+- maintenance refactor
+- visual consistency
+- additional tests
+- organization
+- duplication reduction
+
+P3 — Future/polish
+- optional improvements
+- product ideas
+- aesthetics
+- refinements
+- future features
+
+For each item, inform:
+- priority
+- impact
+- probability
+- effort
+- risk of fixing
+- risk of not fixing
+- recommendation
+
+==================================================
+5. REPORT FORMAT
+==================================================
+
+Deliver the report in this format:
+
+# Total “God Eye” Project Audit
+
+## 1. Executive summary
+- General verdict
+- Current state
+- Main risks
+- Main strengths
+- Blockers
+- Recommendation before continuing
+
+## 2. Analyzed scope
+- Analyzed folders
+- Main analyzed files
+- Commands executed
+- Tests run
+- What could not be validated
+
+## 3. Project map
+- Stack
+- Architecture
+- Modules
+- Main flows
+- Critical dependencies
+- Data/persistence
+
+## 4. Top 10 most important findings
+List the 10 most relevant items, even if they are in different areas.
+
+For each:
+- priority
+- title
+- impact
+- evidence
+- recommended action
+
+## 5. P0 findings
+For each item:
+- title
+- description
+- evidence
+- file/line
+- user impact
+- technical impact
+- probable cause
+- recommended correction
+- estimated effort
+- risk of not fixing
+- validation test
+
+## 6. P1 findings
+Same format.
+
+## 7. P2 findings
+Same format.
+
+## 8. P3 findings
+Same format.
+
+## 9. Findings by area
+Separate:
+- Functionality
+- Data/persistence
+- UI/UX
+- Performance
+- Security/privacy
+- Architecture
+- Tests
+- i18n/texts
+- Build/configuration
+- Product/monetization
+
+## 10. Analyzed flows
+For each flow:
+- status
+- risks
+- edge cases
+- recommended tests
+- observations
+
+## 11. Most critical files
+List the files that concentrate the most risk.
+
+For each:
+- why it is critical
+- problems found
+- recommendation
+
+## 12. Reliable vs suspicious metrics and data
+List:
+- reliable metrics
+- partially reliable metrics
+- inconsistent metrics
+- misleading metrics
+- metrics that need real validation
+
+## 13. Hidden risks
+List risks that may appear with:
+- more users
+- more data
+- more usage time
+- different devices
+- denied permissions
+- old database
+- different language
+- release build
+- store/app store
+- monetization
+
+## 14. Recommended correction plan
+Organize into small deliveries.
+
+Example:
+### Delivery 1 — P0 visual/data
+- objective
+- probable files
+- risk
+- validation
+
+### Delivery 2 — Persistence/versioning
+...
+
+### Delivery 3 — Metrics consistency
+...
+
+### Delivery 4 — Performance
+...
+
+### Delivery 5 — Tests/regression
+...
+
+## 15. Recommended test matrix
+Separate:
+- unit
+- widget/UI
+- integration
+- manual
+- real device
+- regression
+- performance
+- security
+- release
+
+## 16. Pending product decisions
+List points where the issue depends on a decision, not only code.
+
+For each:
+- required decision
+- options
+- recommendation
+- impact
+
+## 17. Final conclusion
+Clearly state:
+- what is very good
+- what needs fixing now
+- what can wait
+- whether it is ready for beta
+- whether it is ready for external users
+- biggest current risk
+- next best action
+
+==================================================
+6. AUDIT QUALITY RULES
+==================================================
+
+- Be extremely critical.
+- Be fair.
+- Do not invent problems without evidence.
+- Do not confuse hypothesis with certainty.
+- Do not suggest rewriting everything if small corrections solve it.
+- Do not ignore risks just because tests pass.
+- Do not consider “analyze passed” as proof of total quality.
+- Whenever possible, cite file and line.
+- If you do not know, say how to validate.
+- Differentiate bug, technical debt, risk, and product decision.
+- Focus on protecting the user, data, and trust.
+- Prioritize real impact.
+- Deliver an actionable report.
+- Do not make corrections until I approve.
+
+At the end, respond as if you were delivering a professional report to decide the project's next priorities.

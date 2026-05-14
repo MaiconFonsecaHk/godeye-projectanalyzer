@@ -1,0 +1,435 @@
+Execute uma análise de contexto deste projeto e crie um arquivo de resumo detalhado.
+
+IMPORTANTE:
+Esta tarefa é SOMENTE para entender, mapear e documentar o projeto.
+NÃO altere código.
+NÃO corrija problemas.
+NÃO sugira melhorias.
+NÃO crie features.
+NÃO faça refatorações.
+NÃO faça commits.
+NÃO entregue opinião.
+NÃO entregue plano de correção.
+NÃO faça auditoria crítica.
+
+Seu objetivo é criar um resumo técnico, neutro, completo e fiel ao estado atual do projeto.
+
+==================================================
+1. OBJETIVO
+==================================================
+
+Crie ou atualize um arquivo chamado:
+
+<nome_do_projeto>_resumo.md
+
+Use o nome real do projeto, quando puder identificá-lo.
+
+Exemplos:
+- calculadora_resumo.md
+- athletium_resumo.md
+- financium_resumo.md
+- caster_admin_resumo.md
+
+Se não conseguir identificar o nome com segurança, use:
+
+projeto_resumo.md
+
+O arquivo deve servir como memória técnica do projeto para futuras interações, permitindo continuar o desenvolvimento sem reler o projeto inteiro.
+
+==================================================
+2. REGRAS IMPORTANTES
+==================================================
+
+- Seja factual.
+- Seja neutro.
+- Não dê opinião.
+- Não critique.
+- Não classifique qualidade.
+- Não recomende correções.
+- Não sugira novas funcionalidades.
+- Não diga “deveria”.
+- Não diga “recomenda-se”.
+- Não diga “seria melhor”.
+- Não crie roadmap.
+- Não invente informações.
+- Se algo não estiver claro, escreva “não identificado”.
+- Se algo for inferido, marque como “inferência”.
+- Se algo vier diretamente dos arquivos, descreva como fato.
+
+Este resumo NÃO é uma auditoria.
+Este resumo NÃO é um plano de melhorias.
+Este resumo NÃO é uma lista de bugs.
+Este resumo NÃO é um relatório de problemas.
+
+É apenas uma documentação objetiva do estado atual do projeto.
+
+==================================================
+3. PREPARAÇÃO OBRIGATÓRIA
+==================================================
+
+Antes de escrever o resumo:
+
+1. Leia a estrutura geral do projeto.
+2. Identifique a linguagem principal.
+3. Identifique framework, runtime ou plataforma.
+4. Leia arquivos de documentação existentes, se houver:
+   - README
+   - docs/
+   - *_resumo.md
+   - *_tarefas.md
+   - CHANGELOG
+   - TODO
+   - arquitetura.md
+   - user_preferences.md
+   - package/config files
+5. Leia arquivos de configuração:
+   - pubspec.yaml
+   - package.json
+   - requirements.txt
+   - pyproject.toml
+   - build.gradle
+   - settings.gradle
+   - docker-compose.yml
+   - Dockerfile
+   - .env.example
+   - l10n.yaml
+   - analysis_options.yaml
+   - tsconfig.json
+   - vite.config
+   - qualquer arquivo equivalente conforme a stack
+6. Identifique módulos principais pela estrutura de pastas.
+7. Identifique fluxos principais pelo código e documentação.
+8. Identifique dependências principais.
+9. Identifique persistência, estado, navegação, integrações e build, quando aplicável.
+
+Não rode comandos destrutivos.
+Não altere arquivos além do arquivo de resumo solicitado.
+
+==================================================
+4. CONTEÚDO OBRIGATÓRIO DO RESUMO
+==================================================
+
+O arquivo <nome_do_projeto>_resumo.md deve conter exatamente estas seções, adaptando o conteúdo ao projeto:
+
+# Resumo do Projeto — <nome_do_projeto>
+
+## 1. Identificação do projeto
+- Nome do projeto:
+- Tipo de projeto:
+- Objetivo aparente:
+- Plataforma(s) alvo:
+- Estado atual observado:
+- Linguagem principal:
+- Framework principal:
+- Gerenciador de pacotes/build:
+- Ambiente de execução:
+
+## 2. Descrição geral
+Descreva de forma objetiva o que o projeto faz atualmente.
+
+Não descreva o que ele deveria fazer.
+Não descreva ideias futuras.
+Não descreva melhorias.
+Apenas o que existe no projeto.
+
+## 3. Stack técnica identificada
+Liste tecnologias, bibliotecas e ferramentas identificadas.
+
+Separar por categorias, quando aplicável:
+
+### Linguagem
+- ...
+
+### Framework
+- ...
+
+### UI
+- ...
+
+### Estado/gerenciamento de estado
+- ...
+
+### Persistência/banco de dados
+- ...
+
+### Navegação/rotas
+- ...
+
+### Rede/APIs
+- ...
+
+### Autenticação
+- ...
+
+### Internacionalização
+- ...
+
+### Testes
+- ...
+
+### Build/release
+- ...
+
+### Outras dependências relevantes
+- ...
+
+Se alguma categoria não existir ou não for identificada, escreva:
+- Não identificado.
+
+## 4. Estrutura de pastas
+Documente a estrutura principal de pastas.
+
+Para cada pasta relevante, informe:
+- caminho
+- finalidade aparente
+- principais arquivos ou subpastas
+
+Formato:
+
+### /caminho
+Descrição objetiva da finalidade.
+
+Arquivos/subpastas principais:
+- arquivo_ou_pasta — função aparente
+
+Não liste arquivos irrelevantes de build/cache, salvo se forem importantes para entender o projeto.
+
+## 5. Arquivos principais
+Liste os arquivos mais importantes do projeto.
+
+Para cada arquivo:
+- caminho
+- função aparente
+- relação com o projeto
+
+Formato:
+
+### caminho/do/arquivo
+- Função:
+- Observações factuais:
+
+Não incluir julgamento de qualidade.
+
+## 6. Arquitetura observada
+Descreva a organização arquitetural atual.
+
+Inclua, se identificado:
+- padrão arquitetural usado
+- separação por camadas
+- separação por features
+- uso de services/controllers/providers/notifiers/repositories
+- onde ficam modelos
+- onde ficam telas
+- onde ficam regras de negócio
+- onde ficam integrações externas
+- onde fica persistência
+
+Se o padrão não estiver claro, escreva:
+“O padrão arquitetural não foi identificado de forma explícita; a organização observada é...”
+
+## 7. Módulos e funcionalidades existentes
+Liste os módulos/funcionalidades que existem atualmente.
+
+Para cada módulo:
+
+### Nome do módulo
+- Caminho(s):
+- O que faz:
+- Telas relacionadas:
+- Dados utilizados:
+- Dependências internas:
+- Dependências externas:
+- Observações factuais:
+
+Não sugerir melhorias.
+Não apontar problemas.
+Apenas documentar.
+
+## 8. Fluxos principais identificados
+Liste os fluxos principais do projeto.
+
+Para cada fluxo:
+
+### Nome do fluxo
+- Objetivo:
+- Entrada:
+- Processamento:
+- Saída/resultado:
+- Arquivos envolvidos:
+- Dados persistidos, se houver:
+- Integrações usadas, se houver:
+
+Descrever apenas fluxos existentes ou claramente inferíveis pelo código.
+
+## 9. Modelos de dados
+Liste os modelos, entidades ou estruturas de dados relevantes.
+
+Para cada modelo:
+
+### Nome do modelo
+- Caminho:
+- Campos principais:
+- Finalidade:
+- Relações com outros modelos:
+- Persistência:
+- Observações factuais:
+
+Se o projeto não tiver modelos formais, descrever as estruturas equivalentes.
+
+## 10. Persistência e armazenamento
+Descreva como o projeto armazena dados.
+
+Inclua:
+- banco local/remoto
+- arquivos locais
+- cache
+- configurações
+- migrations/versionamento, se existir
+- seeders/dados iniciais, se existir
+- importação/exportação, se existir
+
+Não avaliar se está certo ou errado.
+Apenas documentar.
+
+## 11. Integrações externas
+Liste integrações com:
+- APIs
+- serviços externos
+- sensores
+- plugins nativos
+- SDKs
+- autenticação externa
+- arquivos externos
+- serviços de terceiros
+
+Para cada integração:
+- nome
+- finalidade
+- arquivos relacionados
+- dados enviados/recebidos
+- permissões necessárias, se houver
+
+## 12. Internacionalização e textos
+Descreva se o projeto possui suporte a idiomas/i18n.
+
+Inclua:
+- arquivos de tradução
+- idiomas identificados
+- ferramenta usada
+- onde os textos parecem ser definidos
+
+Não apontar erros de tradução.
+Apenas registrar a estrutura existente.
+
+## 13. Configuração de build e execução
+Documente como o projeto aparenta ser executado.
+
+Inclua:
+- comandos disponíveis identificados
+- scripts
+- configuração de build
+- targets/plataformas
+- assets registrados
+- geração de código, se existir
+- variáveis de ambiente, se existir exemplo
+
+Não inventar comandos.
+Só registrar comandos encontrados em documentação/configuração.
+
+## 14. Testes existentes
+Documente testes existentes.
+
+Inclua:
+- estrutura de testes
+- tipos de testes encontrados
+- arquivos de teste
+- áreas cobertas identificadas
+
+Não avaliar cobertura.
+Não recomendar testes.
+Apenas documentar o que existe.
+
+## 15. Documentação existente
+Liste documentação encontrada.
+
+Para cada arquivo:
+- caminho
+- assunto
+- finalidade aparente
+
+## 16. Estado atual do projeto
+Descreva o estado atual observado com base em fatos.
+
+Exemplos de informações aceitáveis:
+- “O projeto possui telas para X, Y e Z.”
+- “Há arquivos de teste em /test.”
+- “O projeto usa banco local X.”
+- “Existe documentação em /docs.”
+- “Foram identificadas configurações para Android.”
+
+Não usar frases avaliativas como:
+- “está bem estruturado”
+- “está fraco”
+- “precisa melhorar”
+- “não está pronto”
+
+## 17. Informações não identificadas
+Liste itens importantes que não puderam ser identificados no projeto.
+
+Formato:
+- Item não identificado:
+- Onde foi procurado:
+- Observação:
+
+## 18. Glossário do projeto
+Liste termos específicos do projeto e o significado aparente de cada um.
+
+Formato:
+- Termo:
+- Significado aparente:
+- Onde aparece:
+
+## 19. Resumo para continuidade
+Escreva uma síntese objetiva para que uma próxima sessão consiga continuar o projeto.
+
+Deve conter:
+- o que o projeto é
+- stack principal
+- módulos principais
+- onde começar a leitura
+- arquivos mais importantes
+- comandos identificados
+- documentação relevante
+
+Sem opinião.
+Sem recomendação.
+Sem plano de ação.
+
+==================================================
+5. FORMATO FINAL DA RESPOSTA
+==================================================
+
+Após criar/atualizar o arquivo, responda somente com:
+
+1. Nome do arquivo criado/atualizado.
+2. Breve lista das seções incluídas.
+3. Observação objetiva caso alguma informação importante não tenha sido identificada.
+
+Não inclua auditoria.
+Não inclua plano de correção.
+Não inclua sugestões.
+Não inclua features.
+Não inclua opinião.
+
+==================================================
+6. CONDIÇÃO DE CERTEZA
+==================================================
+
+Se você não tiver pelo menos 90% de certeza sobre o nome do projeto, use “projeto_resumo.md”.
+
+Se você não tiver pelo menos 90% de certeza sobre alguma informação, marque como:
+“não identificado”
+ou
+“inferência”
+
+Nunca invente dados para completar o resumo.

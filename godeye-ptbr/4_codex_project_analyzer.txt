@@ -1,0 +1,855 @@
+Ative modo “Olho de Deus” neste projeto.
+
+Não altere nada. Faça apenas diagnóstico.
+
+Quero uma auditoria completa, extremamente crítica e detalhada, como se 100 QAs + arquitetos + engenheiros seniores + UX + segurança + performance + produto estivessem analisando tudo.
+
+Procure bugs reais, bugs futuros, inconsistências, riscos ocultos, problemas de dados, UX, arquitetura, performance, segurança, testes, i18n, build, release e produto.
+
+Cite arquivos/linhas, diferencie certeza de hipótese, bug de decisão de produto, risco imediato de dívida técnica.
+
+Entregue relatório priorizado em P0/P1/P2/P3, com evidências, impacto, causa provável, correção recomendada, risco de não corrigir, esforço estimado e plano de correção por entregas.
+
+Não aplique correções até eu aprovar.
+
+
+
+
+Execute uma auditoria total deste projeto no modo “Olho de Deus”.
+
+Quero que você analise o projeto inteiro com o máximo rigor possível, como se uma equipe composta por:
+- 100 QAs manuais
+- 100 QAs automatizados
+- arquitetos de software
+- engenheiros seniores
+- especialistas em segurança
+- especialistas em performance
+- especialistas em UX/UI
+- especialistas em produto
+- especialistas em banco de dados
+- especialistas em testes
+- especialistas em DevOps/release
+- beta testers reais
+- usuários iniciantes
+- usuários avançados
+estivesse investigando tudo ao mesmo tempo.
+
+IMPORTANTE:
+NÃO aplique correções.
+NÃO altere arquivos.
+NÃO refatore.
+NÃO faça commits.
+NÃO “melhore” nada ainda.
+Sua tarefa é SOMENTE investigar, mapear, diagnosticar, priorizar e entregar um relatório extremamente detalhado, técnico, crítico e acionável.
+
+A análise deve ser profunda, ampla e rigorosa.
+Quero que você procure problemas óbvios, problemas escondidos, inconsistências, riscos futuros, decisões frágeis, bugs que ainda não apareceram, gargalos que vão aparecer com dados reais, falhas de UX, problemas de arquitetura, dívidas técnicas e qualquer coisa que possa afetar qualidade, confiança, manutenção, monetização ou lançamento.
+
+Se algo for certeza, marque como certeza.
+Se algo for hipótese, marque como hipótese.
+Se algo depender de teste real, marque como “precisa validação em aparelho/ambiente real”.
+Se algo for decisão de produto, não trate como bug automaticamente; explique as opções.
+
+==================================================
+0. PREPARAÇÃO OBRIGATÓRIA
+==================================================
+
+Antes de analisar:
+1. Leia a estrutura completa do projeto.
+2. Identifique:
+   - linguagem
+   - framework
+   - arquitetura
+   - plataformas alvo
+   - padrões usados
+   - bibliotecas principais
+   - sistema de estado
+   - persistência
+   - navegação
+   - internacionalização
+   - integração externa
+   - build/deploy
+3. Leia arquivos de documentação, se existirem:
+   - README
+   - docs/
+   - *_resumo.md
+   - *_tarefas.md
+   - tarefas.md
+   - CHANGELOG
+   - user_preferences.md
+   - arquitetura.md
+   - TODO
+   - configs
+4. Entenda o objetivo do produto antes de julgar.
+5. Rode comandos seguros de diagnóstico, quando aplicável:
+   - analyzer/linter
+   - testes
+   - build debug
+   - geração de código, se necessário apenas para validar
+6. Não faça alterações sem minha autorização.
+
+Se algum comando não puder ser executado, explique:
+- qual comando
+- por que não rodou
+- qual risco isso deixa na análise
+
+==================================================
+1. OBJETIVO DA AUDITORIA
+==================================================
+
+Encontrar e classificar problemas em todas estas áreas:
+
+- bugs funcionais
+- bugs visuais
+- crashes possíveis
+- perda de dados
+- duplicação de dados
+- inconsistência de dados
+- dados planejados vs dados executados
+- regras de negócio erradas
+- fluxos incompletos
+- edge cases não tratados
+- permissões mal tratadas
+- estados vazios ruins
+- estados de erro ruins
+- loading/sincronização ruins
+- UX confusa
+- UI quebrada
+- textos errados
+- textos hard-coded
+- encoding quebrado
+- i18n inconsistente
+- problemas de acessibilidade
+- problemas de responsividade
+- problemas de performance
+- queries caras
+- N+1 queries
+- filtros em memória indevidos
+- rebuilds excessivos
+- cálculos dentro da UI
+- arquitetura frágil
+- acoplamento excessivo
+- duplicação de lógica
+- serviços/notifiers/controllers grandes demais
+- regras de domínio na UI
+- modelos mal definidos
+- persistência sem migração/versionamento
+- seeders frágeis
+- dependências problemáticas
+- problemas de segurança
+- problemas de privacidade
+- logs sensíveis
+- import/export inseguro
+- validação fraca
+- testes insuficientes
+- build/release frágil
+- riscos para beta
+- riscos para monetização
+- riscos para manutenção futura
+
+==================================================
+2. MODO DE PENSAMENTO
+==================================================
+
+Analise como:
+
+1. QA manual:
+   - “O que quebra se eu usar como usuário comum?”
+
+2. Beta tester:
+   - “O que me faria desinstalar o app?”
+
+3. Engenheiro sênior:
+   - “Que parte vai dar manutenção ruim?”
+
+4. Arquiteto:
+   - “Que decisão vai limitar crescimento?”
+
+5. Especialista de dados:
+   - “Esses números são confiáveis?”
+
+6. Especialista de UX:
+   - “O usuário entende o que está vendo?”
+
+7. Especialista de performance:
+   - “O que vai ficar lento depois de meses de uso?”
+
+8. Especialista de segurança:
+   - “Onde pode vazar, corromper ou aceitar dado perigoso?”
+
+9. Especialista de produto:
+   - “O que afeta confiança, retenção, monetização e lançamento?”
+
+10. Usuário leigo:
+   - “Eu conseguiria usar sem explicação?”
+
+11. Usuário avançado:
+   - “Eu confiaria nos dados e métricas?”
+
+==================================================
+3. CAMADAS DE ANÁLISE
+==================================================
+
+Analise o projeto em camadas.
+
+--------------------------------------------------
+CAMADA A — Visão geral
+--------------------------------------------------
+
+Entregue:
+- objetivo aparente do projeto
+- stack
+- plataformas alvo
+- arquitetura geral
+- módulos principais
+- estado de maturidade
+- pontos fortes
+- pontos frágeis
+- risco geral
+- veredito geral:
+  - pronto para uso interno
+  - pronto para beta fechado
+  - quase pronto
+  - precisa correções importantes
+  - alto risco
+
+--------------------------------------------------
+CAMADA B — Arquitetura
+--------------------------------------------------
+
+Verifique:
+- organização de pastas
+- separação por features/módulos
+- clareza de responsabilidades
+- acoplamento
+- dependências cruzadas
+- duplicação de regra de negócio
+- lógica de domínio dentro da UI
+- services grandes demais
+- providers/controllers/notifiers inchados
+- widgets gigantes
+- modelos com responsabilidade demais
+- ausência de camada de domínio
+- ausência de helpers testáveis
+- padrões inconsistentes
+- código morto
+- TODOs/FIXMEs importantes
+
+Para cada achado:
+- arquivo
+- linha aproximada
+- evidência
+- impacto
+- causa provável
+- sugestão
+- prioridade
+
+--------------------------------------------------
+CAMADA C — Fluxos principais
+--------------------------------------------------
+
+Identifique os principais fluxos do produto.
+
+Para cada fluxo, analise:
+- caminho feliz
+- entrada inválida
+- cancelamento
+- loading
+- erro
+- permissão negada
+- sem internet
+- dados vazios
+- dados antigos
+- dados corrompidos
+- fechar app no meio
+- reabrir app
+- voltar tela
+- duplicidade de ação
+- toque duplo
+- rotação/tela pequena
+- fluxo em idioma diferente
+- persistência
+- recuperação
+
+Classifique cada fluxo:
+- OK
+- frágil
+- quebrado
+- inconsistente
+- precisa teste real
+- não coberto por teste
+
+--------------------------------------------------
+CAMADA D — Dados e persistência
+--------------------------------------------------
+
+Analise profundamente:
+- modelos
+- banco local/remoto
+- migrations
+- seeders
+- versionamento
+- compatibilidade retroativa
+- IDs estáveis
+- atualização de catálogo
+- dados legados
+- upsert
+- duplicatas
+- remoção segura
+- dados planejados vs executados
+- dados locais vs externos
+- timezone
+- filtros por data
+- agregações
+- métricas
+- cache
+- sincronização
+- perda de dados
+- duplicação de registros
+- fallback para dados antigos
+
+Procure:
+- carregar tudo e filtrar em memória
+- N+1 queries
+- telas diferentes calculando a mesma métrica de formas diferentes
+- histórico antigo que nunca recebe correção
+- seeders que não atualizam dados já instalados
+- ausência de versão de catálogo
+- ausência de migração
+- falta de validação antes de persistir
+- possibilidade de dados impossíveis
+
+--------------------------------------------------
+CAMADA E — Métricas e consistência de informação
+--------------------------------------------------
+
+Verifique se métricas exibidas são confiáveis.
+
+Para cada métrica:
+- definição
+- origem dos dados
+- fórmula
+- telas onde aparece
+- se aparece com o mesmo significado em todo lugar
+- se mistura fontes
+- se soma dados duplicados
+- se considera timezone
+- se trata dados ausentes
+- se diferencia valor real, estimado e fallback
+- se o texto explica corretamente
+
+Exemplos:
+- volume
+- calorias
+- passos
+- duração
+- streak
+- frequência
+- heatmap
+- níveis
+- progresso
+- histórico
+- totais diários
+- dados externos
+- dados locais
+
+Classifique:
+- confiável
+- parcialmente confiável
+- enganoso
+- inconsistente
+- precisa validação real
+
+--------------------------------------------------
+CAMADA F — Performance
+--------------------------------------------------
+
+Procure:
+- queries pesadas
+- filtros em memória
+- N+1
+- cálculos repetidos
+- parsing repetido
+- rebuilds excessivos
+- providers duplicados
+- widgets que recalculam demais
+- listas sem lazy loading
+- imagens/assets pesados
+- animações custosas
+- operações síncronas pesadas
+- gargalos no app start
+- gargalos em telas de dashboard
+- gargalos que só aparecem com meses de uso
+
+Para cada achado:
+- risco agora
+- risco futuro
+- estimativa de impacto
+- sugestão simples
+- sugestão robusta
+- prioridade
+
+--------------------------------------------------
+CAMADA G — UI/UX
+--------------------------------------------------
+
+Analise como usuário real:
+- hierarquia visual
+- clareza
+- botões principais
+- excesso de informação
+- telas poluídas
+- telas vazias
+- erro sem orientação
+- loading sem feedback
+- refresh confuso
+- botões sobrepostos
+- bottom overflow
+- texto cortado
+- layout em tela pequena
+- espaçamento
+- contraste
+- consistência de ícones
+- tamanho de toque
+- navegação
+- voltar/cancelar
+- snackbars
+- dialogs
+- bottom sheets
+- estados de sucesso
+- estados de falha
+- linguagem técnica demais
+- números sem contexto
+- onboarding
+- acessibilidade básica
+
+Procure especialmente:
+- UI que parece bug mesmo quando tecnicamente está correta
+- valores que parecem absurdos sem explicação
+- botões que parecem fazer nada
+- estados vazios que não orientam
+- mensagens genéricas demais
+
+--------------------------------------------------
+CAMADA H — Internacionalização, textos e encoding
+--------------------------------------------------
+
+Faça uma varredura por:
+- strings hard-coded
+- textos em idioma errado
+- mistura PT-BR/EN
+- encoding quebrado
+- mojibake
+- pluralização errada
+- traduções faltantes
+- nomes inconsistentes
+- termos técnicos demais
+- texto user-facing dentro do código
+- TODO/FIXME visível ao usuário
+
+Procure padrões:
+- Ã
+- Â
+-  
+- â€
+- nÃ
+- Ã§
+- Ã£
+- Ã©
+- Ã¡
+- Ã³
+- Ã­
+- Ãº
+- explicaÃ
+- nÃ£o
+- usuÃ
+- configuraÃ
+- atualizaÃ
+
+Entregue:
+- arquivo
+- linha
+- texto quebrado
+- correção sugerida
+- se deve ir para i18n
+
+--------------------------------------------------
+CAMADA I — Segurança e privacidade
+--------------------------------------------------
+
+Analise:
+- tokens
+- chaves
+- secrets
+- logs sensíveis
+- dados pessoais
+- permissões excessivas
+- importação de arquivos
+- exportação de arquivos
+- JSON malicioso
+- path traversal
+- dados não validados
+- crash por arquivo inválido
+- armazenamento inseguro
+- dados em backup
+- política de plataforma
+- dependências inseguras
+- uso de HTTP sem TLS
+- URLs hard-coded
+- tratamento de anexos/arquivos
+- permissões Android/iOS
+- risco de expor dados do usuário
+
+Classifique:
+- crítico
+- alto
+- médio
+- baixo
+
+--------------------------------------------------
+CAMADA J — Testes
+--------------------------------------------------
+
+Analise:
+- testes existentes
+- testes que realmente validam regra
+- testes superficiais
+- cobertura crítica ausente
+- regras de domínio sem teste
+- widgets importantes sem teste
+- integração sem teste
+- persistência sem teste
+- import/export sem teste
+- permissões sem teste
+- falhas conhecidas sem teste de regressão
+
+Entregue:
+- testes bons existentes
+- testes faltantes P0
+- testes faltantes P1
+- testes recomendados por módulo
+- testes manuais obrigatórios
+- testes em aparelho real
+- matriz de regressão
+
+--------------------------------------------------
+CAMADA K — Dependências, build e release
+--------------------------------------------------
+
+Analise:
+- dependências
+- versões
+- conflitos
+- pacotes abandonados
+- permissões
+- configs Android/iOS/Web/Desktop
+- build debug/release
+- assets
+- geração de código
+- arquivos gerados
+- lints
+- flavors
+- signing
+- minSdk/targetSdk
+- ProGuard/R8, se aplicável
+- tamanho do app
+- assets faltando
+- configuração de release
+- compatibilidade com lojas
+
+Entregue:
+- riscos imediatos
+- riscos futuros
+- recomendações antes de beta/release
+
+--------------------------------------------------
+CAMADA L — Código suspeito e dívida técnica
+--------------------------------------------------
+
+Procure:
+- funções longas
+- classes longas
+- muitos ifs aninhados
+- lógica duplicada
+- lógica copiada
+- comentários desatualizados
+- nomes confusos
+- dependência implícita
+- números mágicos
+- strings mágicas
+- fallback perigoso
+- try/catch que engole erro
+- logs excessivos
+- logs insuficientes
+- estado global mal controlado
+- código que “funciona por coincidência”
+- código difícil de testar
+
+Classifique:
+- dívida tolerável
+- dívida perigosa
+- dívida que vai bloquear crescimento
+
+--------------------------------------------------
+CAMADA M — Produto, monetização e confiança
+--------------------------------------------------
+
+Analise:
+- o que afeta confiança do usuário
+- o que faria o usuário desinstalar
+- o que atrapalha monetização
+- o que precisa estar impecável antes de cobrar
+- o que pode ficar para depois
+- quais features parecem diferenciais
+- quais features parecem inacabadas
+- onde o app pode parecer amador
+- onde o app parece premium
+- onde números/dados podem gerar desconfiança
+- onde há risco de promessa exagerada
+
+Classifique:
+- bloqueia lançamento
+- bloqueia beta
+- afeta conversão
+- afeta retenção
+- polish futuro
+
+==================================================
+4. PRIORIZAÇÃO OBRIGATÓRIA
+==================================================
+
+Classifique cada achado:
+
+P0 — Corrigir imediatamente
+- crash
+- perda de dados
+- dado falso grave
+- segurança/privacidade séria
+- texto quebrado user-facing
+- fluxo principal quebrado
+- build quebrado
+- app inutilizável
+- comportamento que destrói confiança
+
+P1 — Corrigir antes de beta/release
+- bug funcional importante
+- inconsistência de dados
+- UX confusa em fluxo importante
+- performance problemática em tela central
+- persistência frágil
+- permissões mal tratadas
+- teste crítico ausente
+- catálogo/dados que não atualizam
+
+P2 — Melhorias importantes
+- dívida técnica relevante
+- performance preventiva
+- refatoração de manutenção
+- consistência visual
+- testes adicionais
+- organização
+- redução de duplicação
+
+P3 — Futuro/polimento
+- melhorias opcionais
+- ideias de produto
+- estética
+- refinamentos
+- features futuras
+
+Para cada item, informe:
+- prioridade
+- impacto
+- probabilidade
+- esforço
+- risco de corrigir
+- risco de não corrigir
+- recomendação
+
+==================================================
+5. FORMATO DO RELATÓRIO
+==================================================
+
+Entregue o relatório neste formato:
+
+# Auditoria Total “Olho de Deus” do Projeto
+
+## 1. Resumo executivo
+- Veredito geral
+- Estado atual
+- Principais riscos
+- Principais pontos fortes
+- Bloqueadores
+- Recomendação antes de continuar
+
+## 2. Escopo analisado
+- Pastas analisadas
+- Arquivos principais analisados
+- Comandos executados
+- Testes rodados
+- O que não pôde ser validado
+
+## 3. Mapa do projeto
+- Stack
+- Arquitetura
+- Módulos
+- Fluxos principais
+- Dependências críticas
+- Dados/persistência
+
+## 4. Top 10 achados mais importantes
+Liste os 10 itens mais relevantes, mesmo que estejam em áreas diferentes.
+
+Para cada:
+- prioridade
+- título
+- impacto
+- evidência
+- ação recomendada
+
+## 5. Achados P0
+Para cada item:
+- título
+- descrição
+- evidência
+- arquivo/linha
+- impacto no usuário
+- impacto técnico
+- causa provável
+- correção recomendada
+- esforço estimado
+- risco de não corrigir
+- teste de validação
+
+## 6. Achados P1
+Mesmo formato.
+
+## 7. Achados P2
+Mesmo formato.
+
+## 8. Achados P3
+Mesmo formato.
+
+## 9. Achados por área
+Separar:
+- Funcionalidade
+- Dados/persistência
+- UI/UX
+- Performance
+- Segurança/privacidade
+- Arquitetura
+- Testes
+- i18n/textos
+- Build/configuração
+- Produto/monetização
+
+## 10. Fluxos analisados
+Para cada fluxo:
+- status
+- riscos
+- edge cases
+- testes recomendados
+- observações
+
+## 11. Arquivos mais críticos
+Liste os arquivos que mais concentram risco.
+
+Para cada:
+- por que é crítico
+- problemas encontrados
+- recomendação
+
+## 12. Métricas e dados confiáveis vs suspeitos
+Liste:
+- métricas confiáveis
+- métricas parcialmente confiáveis
+- métricas inconsistentes
+- métricas enganosas
+- métricas que precisam de validação real
+
+## 13. Riscos ocultos
+Liste riscos que podem aparecer com:
+- mais usuários
+- mais dados
+- mais tempo de uso
+- aparelhos diferentes
+- permissões negadas
+- base antiga
+- idioma diferente
+- release build
+- loja/app store
+- monetização
+
+## 14. Plano de correção recomendado
+Organize em entregas pequenas.
+
+Exemplo:
+### Entrega 1 — P0 visual/dados
+- objetivo
+- arquivos prováveis
+- risco
+- validação
+
+### Entrega 2 — Persistência/versionamento
+...
+
+### Entrega 3 — Consistência de métricas
+...
+
+### Entrega 4 — Performance
+...
+
+### Entrega 5 — Testes/regressão
+...
+
+## 15. Matriz de testes recomendada
+Separar:
+- unitários
+- widget/UI
+- integração
+- manuais
+- aparelho real
+- regressão
+- performance
+- segurança
+- release
+
+## 16. Decisões de produto pendentes
+Liste pontos onde o problema depende de decisão, não só código.
+
+Para cada:
+- decisão necessária
+- opções
+- recomendação
+- impacto
+
+## 17. Conclusão final
+Diga claramente:
+- o que está muito bom
+- o que precisa corrigir agora
+- o que pode esperar
+- se está pronto para beta
+- se está pronto para usuários externos
+- maior risco atual
+- próxima melhor ação
+
+==================================================
+6. REGRAS DE QUALIDADE DA AUDITORIA
+==================================================
+
+- Seja extremamente crítico.
+- Seja justo.
+- Não invente problema sem evidência.
+- Não confunda hipótese com certeza.
+- Não sugira reescrever tudo se pequenas correções resolvem.
+- Não ignore riscos só porque os testes passam.
+- Não considere “analyze passou” como prova de qualidade total.
+- Sempre que possível, cite arquivo e linha.
+- Se não souber, diga como validar.
+- Diferencie bug, dívida técnica, risco e decisão de produto.
+- Foque no que protege usuário, dados e confiança.
+- Priorize impacto real.
+- Entregue relatório acionável.
+- Não faça correções até eu aprovar.
+
+No final, quero que você responda como se estivesse entregando um relatório profissional para decidir as próximas prioridades do projeto.

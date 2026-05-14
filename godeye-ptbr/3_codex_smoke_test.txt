@@ -1,0 +1,449 @@
+Crie um plano de Smoke Test para este projeto.
+
+IMPORTANTE:
+Considere que o arquivo <nome_do_projeto>_resumo.md já foi criado anteriormente.
+Antes de escrever o plano, leia esse resumo para entender o projeto, sua stack, seus módulos, seus fluxos principais e sua estrutura.
+
+Esta tarefa é SOMENTE para criar um plano de Smoke Test.
+NÃO altere código.
+NÃO corrija problemas.
+NÃO implemente testes.
+NÃO crie features.
+NÃO faça refatorações.
+NÃO faça commits.
+NÃO faça auditoria completa.
+NÃO gere plano de correção.
+NÃO sugira melhorias fora do escopo do Smoke Test.
+
+Seu objetivo é criar um roteiro prático, objetivo e executável para validar rapidamente se o projeto continua funcionando nas áreas essenciais.
+
+==================================================
+1. OBJETIVO DO SMOKE TEST
+==================================================
+
+Criar um plano de Smoke Test que valide o funcionamento mínimo e essencial do projeto após alterações, merges, builds, releases ou mudanças importantes.
+
+O Smoke Test deve responder:
+
+“O projeto abre, roda e os fluxos principais continuam funcionando?”
+
+O plano deve focar em:
+- inicialização
+- build básico
+- telas principais
+- fluxos críticos
+- persistência básica
+- permissões essenciais
+- integrações principais
+- import/export, se existir
+- navegação
+- estados vazios
+- estados de erro básicos
+- regressões óbvias
+- comportamento mínimo esperado
+
+Não transformar em teste exaustivo.
+Não transformar em auditoria.
+Não transformar em QA completo.
+Não transformar em checklist infinito.
+
+==================================================
+2. ENTRADAS OBRIGATÓRIAS
+==================================================
+
+Antes de montar o plano:
+
+1. Leia o arquivo:
+   <nome_do_projeto>_resumo.md
+
+2. Se houver mais de um arquivo *_resumo.md, use o mais relacionado ao projeto atual.
+
+3. Leia também, se existirem:
+   - README
+   - docs/
+   - *_tarefas.md
+   - CHANGELOG
+   - arquivos de configuração principais
+   - arquivos de teste existentes
+
+4. Identifique:
+   - tipo de projeto
+   - linguagem
+   - framework
+   - plataforma alvo
+   - comandos de execução/build/teste
+   - fluxos principais
+   - módulos críticos
+   - persistência
+   - integrações externas
+   - permissões necessárias
+   - pontos que precisam de validação manual
+
+==================================================
+3. ARQUIVO A SER CRIADO
+==================================================
+
+Crie ou atualize um arquivo chamado:
+
+<nome_do_projeto>_smoke_test.md
+
+Exemplos:
+- calculadora_smoke_test.md
+- athletium_smoke_test.md
+- financium_smoke_test.md
+- caster_admin_smoke_test.md
+
+Se não conseguir identificar o nome do projeto com 90% de certeza, use:
+
+projeto_smoke_test.md
+
+==================================================
+4. REGRAS DO PLANO
+==================================================
+
+O plano deve ser:
+
+- claro
+- direto
+- executável
+- organizado por prioridade
+- específico para o projeto
+- baseado no resumo existente
+- útil para rodar manualmente ou orientar automação futura
+- separado por plataforma, quando aplicável
+- sem opinião desnecessária
+- sem sugestões de features
+- sem correções de código
+- sem auditoria profunda
+
+Cada teste deve conter:
+- ID
+- nome do teste
+- objetivo
+- pré-condições
+- passos
+- resultado esperado
+- tipo de execução
+- prioridade
+- observações, se necessário
+
+==================================================
+5. CLASSIFICAÇÃO DE PRIORIDADE
+==================================================
+
+Classifique cada teste como:
+
+CRÍTICO:
+Teste que valida se o projeto abre, compila, inicia ou executa fluxo principal indispensável.
+
+ALTO:
+Teste de fluxo importante que, se quebrar, afeta uso normal.
+
+MÉDIO:
+Teste de fluxo secundário ou comportamento importante, mas não bloqueante imediato.
+
+BAIXO:
+Teste de polimento, fluxo menos frequente ou validação complementar.
+
+==================================================
+6. TIPOS DE EXECUÇÃO
+==================================================
+
+Classifique cada teste como:
+
+MANUAL:
+Precisa ser feito por uma pessoa.
+
+AUTOMATIZÁVEL:
+Pode virar teste automatizado no futuro.
+
+COMANDO:
+Pode ser validado por comando de terminal.
+
+APARELHO REAL:
+Precisa ser validado em dispositivo físico, emulador específico, navegador real, ambiente real ou hardware real.
+
+AMBIENTE:
+Depende de servidor, API, banco, arquivo, sensor, permissão ou serviço externo.
+
+Pode usar mais de um tipo por teste.
+
+==================================================
+7. CONTEÚDO OBRIGATÓRIO DO ARQUIVO
+==================================================
+
+O arquivo <nome_do_projeto>_smoke_test.md deve conter exatamente estas seções:
+
+# Plano de Smoke Test — <nome_do_projeto>
+
+## 1. Objetivo
+Explique objetivamente o propósito deste Smoke Test para o projeto.
+
+## 2. Escopo
+Liste o que este Smoke Test cobre.
+
+Separar em:
+- Inicialização
+- Build/execução
+- Navegação principal
+- Fluxos críticos
+- Persistência
+- Integrações
+- Permissões
+- UI essencial
+- Regressões óbvias
+
+Remova categorias que claramente não se aplicam ao projeto.
+
+## 3. Fora de escopo
+Liste o que este Smoke Test NÃO cobre.
+
+Exemplos:
+- auditoria completa
+- testes de carga profundos
+- validação completa de UX
+- cobertura total de regras de negócio
+- análise de segurança avançada
+- testes exploratórios longos
+- testes de monetização detalhados
+
+Adapte ao projeto.
+
+## 4. Ambiente necessário
+Liste o ambiente necessário para rodar o Smoke Test.
+
+Inclua, se aplicável:
+- sistema operacional
+- versão da linguagem/framework
+- dependências
+- banco local/remoto
+- variáveis de ambiente
+- emulador/aparelho
+- navegador
+- acesso à internet
+- permissões
+- contas de teste
+- arquivos de exemplo
+- hardware externo
+
+Se algo não foi identificado no resumo, marque como “não identificado”.
+
+## 5. Comandos básicos de validação
+Liste comandos identificados no projeto para validar execução.
+
+Exemplos conforme stack, apenas se forem aplicáveis e identificados:
+- instalar dependências
+- rodar analyzer/linter
+- rodar testes
+- build debug
+- build release
+- iniciar servidor
+- executar app
+- gerar código
+
+Não invente comandos.
+Se os comandos não estiverem claros, escreva:
+“Comandos não identificados com segurança no resumo/documentação.”
+
+## 6. Checklist rápido
+Crie uma checklist curta, de alto nível, para validação rápida.
+
+Formato:
+
+- [ ] Projeto instala dependências sem erro
+- [ ] Projeto executa sem crash inicial
+- [ ] Tela inicial abre
+- [ ] Navegação principal funciona
+- [ ] Fluxo principal funciona
+- [ ] Dados básicos persistem
+- [ ] Build principal conclui
+- [ ] Testes existentes passam
+
+Adaptar ao projeto.
+
+## 7. Testes críticos
+Liste apenas testes essenciais.
+
+Formato obrigatório para cada teste:
+
+### ST-CRIT-001 — Nome do teste
+- Prioridade:
+- Tipo:
+- Objetivo:
+- Pré-condições:
+- Passos:
+  1. ...
+  2. ...
+  3. ...
+- Resultado esperado:
+- Observações:
+
+## 8. Testes de prioridade alta
+Mesmo formato.
+
+## 9. Testes de prioridade média
+Mesmo formato.
+
+## 10. Testes de prioridade baixa
+Mesmo formato.
+
+## 11. Smoke Test por fluxo principal
+Para cada fluxo principal identificado no resumo, crie uma tabela:
+
+### Fluxo: <nome_do_fluxo>
+
+| Etapa | Ação | Resultado esperado | Tipo | Prioridade |
+|---|---|---|---|---|
+
+Os fluxos devem ser específicos do projeto.
+
+## 12. Smoke Test por plataforma
+Se o projeto tiver múltiplas plataformas, separar:
+
+### Android
+### iOS
+### Web
+### Desktop
+### Backend
+### API
+### Banco de dados
+### Hardware/dispositivo externo
+
+Use apenas as plataformas aplicáveis ao projeto.
+
+Para cada plataforma:
+- validações mínimas
+- riscos básicos
+- o que observar
+
+## 13. Smoke Test de persistência
+Se o projeto possui persistência, validar:
+
+- criar dado básico
+- editar dado básico
+- remover dado básico, se aplicável
+- fechar e abrir novamente
+- confirmar que o dado permanece
+- confirmar que não duplica indevidamente
+- confirmar que estado vazio funciona
+
+Adaptar aos dados reais do projeto.
+
+## 14. Smoke Test de integração externa
+Se o projeto possui integrações externas, validar:
+
+- integração disponível
+- integração indisponível
+- permissão negada
+- retorno vazio
+- erro básico
+- timeout ou falha simples
+- fallback, se existir
+
+Não aprofundar em segurança ou performance.
+
+## 15. Smoke Test de UI essencial
+Validar o mínimo de interface:
+
+- tela inicial
+- menu/navegação
+- botões principais
+- estados vazios
+- mensagens de erro básicas
+- loading básico
+- tela pequena, se aplicável
+- rolagem, se aplicável
+- formulário, se aplicável
+
+## 16. Smoke Test de build/release
+Validar, conforme o projeto:
+
+- build de desenvolvimento
+- build de release, se aplicável
+- assets carregando
+- arquivos de configuração presentes
+- app/serviço inicia após build
+- não há erro crítico no primeiro uso
+
+Não fazer análise profunda de release.
+
+## 17. Critérios de aprovação
+Defina critérios objetivos para considerar o Smoke Test aprovado.
+
+Exemplo:
+- Todos os testes críticos passaram.
+- Nenhum crash foi encontrado na inicialização.
+- Fluxos principais executaram até o fim.
+- Build principal foi gerado com sucesso.
+- Dados básicos persistiram corretamente.
+- Nenhum bloqueador foi encontrado.
+
+Adaptar ao projeto.
+
+## 18. Critérios de reprovação
+Defina critérios objetivos para considerar o Smoke Test reprovado.
+
+Exemplo:
+- App/projeto não inicia.
+- Build principal falha.
+- Fluxo principal quebra.
+- Dados básicos não persistem.
+- Tela inicial apresenta crash.
+- Integração essencial impede uso mínimo.
+- Permissão essencial não possui fallback mínimo.
+
+Adaptar ao projeto.
+
+## 19. Registro de execução
+Inclua uma seção para preencher futuramente:
+
+| Data | Versão/branch | Executor | Ambiente | Resultado | Observações |
+|---|---|---|---|---|---|
+
+## 20. Resultado da última execução
+Criar espaço para preenchimento:
+
+- Data:
+- Branch/versão:
+- Ambiente:
+- Resultado geral:
+- Testes críticos:
+- Testes altos:
+- Bloqueadores encontrados:
+- Observações:
+
+==================================================
+8. LIMITES IMPORTANTES
+==================================================
+
+Não criar uma auditoria.
+Não listar problemas do projeto.
+Não sugerir correções.
+Não criar roadmap.
+Não criar backlog.
+Não sugerir novas features.
+Não alterar código.
+Não executar correções.
+Não transformar isso em teste completo de regressão.
+
+Se durante a criação do Smoke Test encontrar algo suspeito, apenas registre na seção “Observações de execução futura”, sem recomendar correção.
+
+Exemplo:
+“Validar manualmente este fluxo em aparelho real, pois depende de permissão/sensor/API externa.”
+
+==================================================
+9. FORMATO FINAL DA RESPOSTA
+==================================================
+
+Após criar/atualizar o arquivo, responda somente com:
+
+1. Nome do arquivo criado/atualizado.
+2. Quantidade de testes criados por prioridade.
+3. Plataformas cobertas.
+4. Comandos identificados, se houver.
+5. Informações que não puderam ser determinadas com segurança.
+
+Não entregue o conteúdo inteiro no chat, a menos que eu peça.
+Não faça auditoria.
+Não corrija nada.
+Não crie features.

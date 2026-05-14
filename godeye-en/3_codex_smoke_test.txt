@@ -1,0 +1,449 @@
+Create a Smoke Test plan for this project.
+
+IMPORTANT:
+Assume that the <project_name>_summary.md file has already been created previously.
+Before writing the plan, read that summary to understand the project, its stack, modules, main flows, and structure.
+
+This task is ONLY to create a Smoke Test plan.
+DO NOT modify code.
+DO NOT fix issues.
+DO NOT implement tests.
+DO NOT create features.
+DO NOT refactor.
+DO NOT commit.
+DO NOT perform a full audit.
+DO NOT generate a correction plan.
+DO NOT suggest improvements outside the Smoke Test scope.
+
+Your goal is to create a practical, objective, executable checklist to quickly validate whether the project continues to work in its essential areas.
+
+==================================================
+1. SMOKE TEST OBJECTIVE
+==================================================
+
+Create a Smoke Test plan that validates the minimum and essential functioning of the project after changes, merges, builds, releases, or important modifications.
+
+The Smoke Test must answer:
+
+“Does the project open, run, and do the main flows still work?”
+
+The plan must focus on:
+- startup
+- basic build
+- main screens
+- critical flows
+- basic persistence
+- essential permissions
+- main integrations
+- import/export, if any
+- navigation
+- empty states
+- basic error states
+- obvious regressions
+- minimum expected behavior
+
+Do not turn it into an exhaustive test.
+Do not turn it into an audit.
+Do not turn it into full QA.
+Do not turn it into an infinite checklist.
+
+==================================================
+2. MANDATORY INPUTS
+==================================================
+
+Before creating the plan:
+
+1. Read the file:
+   <project_name>_summary.md
+
+2. If there is more than one *_summary.md file, use the one most related to the current project.
+
+3. Also read, if they exist:
+   - README
+   - docs/
+   - *_tasks.md
+   - CHANGELOG
+   - main configuration files
+   - existing test files
+
+4. Identify:
+   - project type
+   - language
+   - framework
+   - target platform
+   - execution/build/test commands
+   - main flows
+   - critical modules
+   - persistence
+   - external integrations
+   - required permissions
+   - points that require manual validation
+
+==================================================
+3. FILE TO CREATE
+==================================================
+
+Create or update a file named:
+
+<project_name>_smoke_test.md
+
+Examples:
+- calculator_smoke_test.md
+- athletium_smoke_test.md
+- financium_smoke_test.md
+- caster_admin_smoke_test.md
+
+If you cannot identify the project name with 90% confidence, use:
+
+project_smoke_test.md
+
+==================================================
+4. PLAN RULES
+==================================================
+
+The plan must be:
+
+- clear
+- direct
+- executable
+- organized by priority
+- specific to the project
+- based on the existing summary
+- useful for manual execution or future automation guidance
+- separated by platform when applicable
+- free of unnecessary opinion
+- free of feature suggestions
+- free of code fixes
+- free of deep audit content
+
+Each test must contain:
+- ID
+- test name
+- objective
+- preconditions
+- steps
+- expected result
+- execution type
+- priority
+- notes, if necessary
+
+==================================================
+5. PRIORITY CLASSIFICATION
+==================================================
+
+Classify each test as:
+
+CRITICAL:
+Test that validates whether the project opens, compiles, starts, or executes an indispensable main flow.
+
+HIGH:
+Important flow test that affects normal use if broken.
+
+MEDIUM:
+Secondary flow or important behavior, but not immediately blocking.
+
+LOW:
+Polish, less frequent flow, or complementary validation.
+
+==================================================
+6. EXECUTION TYPES
+==================================================
+
+Classify each test as:
+
+MANUAL:
+Must be performed by a person.
+
+AUTOMATABLE:
+Can become an automated test in the future.
+
+COMMAND:
+Can be validated by terminal command.
+
+REAL DEVICE:
+Must be validated on a physical device, specific emulator, real browser, real environment, or real hardware.
+
+ENVIRONMENT:
+Depends on server, API, database, file, sensor, permission, or external service.
+
+A test may use more than one type.
+
+==================================================
+7. REQUIRED FILE CONTENT
+==================================================
+
+The <project_name>_smoke_test.md file must contain exactly these sections:
+
+# Smoke Test Plan — <project_name>
+
+## 1. Objective
+Objectively explain the purpose of this Smoke Test for the project.
+
+## 2. Scope
+List what this Smoke Test covers.
+
+Separate into:
+- Startup
+- Build/execution
+- Main navigation
+- Critical flows
+- Persistence
+- Integrations
+- Permissions
+- Essential UI
+- Obvious regressions
+
+Remove categories that clearly do not apply to the project.
+
+## 3. Out of scope
+List what this Smoke Test does NOT cover.
+
+Examples:
+- full audit
+- deep load testing
+- full UX validation
+- full business-rule coverage
+- advanced security analysis
+- long exploratory testing
+- detailed monetization tests
+
+Adapt to the project.
+
+## 4. Required environment
+List the environment required to run the Smoke Test.
+
+Include, if applicable:
+- operating system
+- language/framework version
+- dependencies
+- local/remote database
+- environment variables
+- emulator/device
+- browser
+- internet access
+- permissions
+- test accounts
+- sample files
+- external hardware
+
+If something was not identified in the summary, mark it as “not identified”.
+
+## 5. Basic validation commands
+List identified project commands to validate execution.
+
+Examples according to stack, only if applicable and identified:
+- install dependencies
+- run analyzer/linter
+- run tests
+- debug build
+- release build
+- start server
+- run app
+- generate code
+
+Do not invent commands.
+If commands are not clear, write:
+“Commands not safely identified in summary/documentation.”
+
+## 6. Quick checklist
+Create a short high-level checklist for quick validation.
+
+Format:
+
+- [ ] Project installs dependencies without errors
+- [ ] Project runs without initial crash
+- [ ] Initial screen opens
+- [ ] Main navigation works
+- [ ] Main flow works
+- [ ] Basic data persists
+- [ ] Main build completes
+- [ ] Existing tests pass
+
+Adapt to the project.
+
+## 7. Critical tests
+List only essential tests.
+
+Mandatory format for each test:
+
+### ST-CRIT-001 — Test name
+- Priority:
+- Type:
+- Objective:
+- Preconditions:
+- Steps:
+  1. ...
+  2. ...
+  3. ...
+- Expected result:
+- Notes:
+
+## 8. High-priority tests
+Same format.
+
+## 9. Medium-priority tests
+Same format.
+
+## 10. Low-priority tests
+Same format.
+
+## 11. Smoke Test by main flow
+For each main flow identified in the summary, create a table:
+
+### Flow: <flow_name>
+
+| Step | Action | Expected result | Type | Priority |
+|---|---|---|---|---|
+
+The flows must be specific to the project.
+
+## 12. Smoke Test by platform
+If the project has multiple platforms, separate:
+
+### Android
+### iOS
+### Web
+### Desktop
+### Backend
+### API
+### Database
+### Hardware/external device
+
+Use only platforms applicable to the project.
+
+For each platform:
+- minimum validations
+- basic risks
+- what to observe
+
+## 13. Persistence Smoke Test
+If the project has persistence, validate:
+
+- create basic data
+- edit basic data
+- remove basic data, if applicable
+- close and reopen
+- confirm the data remains
+- confirm it does not duplicate incorrectly
+- confirm empty state works
+
+Adapt to the project's real data.
+
+## 14. External integration Smoke Test
+If the project has external integrations, validate:
+
+- integration available
+- integration unavailable
+- permission denied
+- empty response
+- basic error
+- timeout or simple failure
+- fallback, if it exists
+
+Do not go deep into security or performance.
+
+## 15. Essential UI Smoke Test
+Validate the minimum interface:
+
+- initial screen
+- menu/navigation
+- main buttons
+- empty states
+- basic error messages
+- basic loading
+- small screen, if applicable
+- scrolling, if applicable
+- form, if applicable
+
+## 16. Build/release Smoke Test
+Validate, according to the project:
+
+- development build
+- release build, if applicable
+- assets loading
+- configuration files present
+- app/service starts after build
+- no critical error on first use
+
+Do not perform deep release analysis.
+
+## 17. Approval criteria
+Define objective criteria to consider the Smoke Test passed.
+
+Example:
+- All critical tests passed.
+- No crash was found at startup.
+- Main flows executed to completion.
+- Main build was generated successfully.
+- Basic data persisted correctly.
+- No blocker was found.
+
+Adapt to the project.
+
+## 18. Failure criteria
+Define objective criteria to consider the Smoke Test failed.
+
+Example:
+- App/project does not start.
+- Main build fails.
+- Main flow breaks.
+- Basic data does not persist.
+- Initial screen crashes.
+- Essential integration prevents minimum use.
+- Essential permission has no minimum fallback.
+
+Adapt to the project.
+
+## 19. Execution log
+Include a section to fill in later:
+
+| Date | Version/branch | Executor | Environment | Result | Notes |
+|---|---|---|---|---|---|
+
+## 20. Latest execution result
+Create space to fill in:
+
+- Date:
+- Branch/version:
+- Environment:
+- General result:
+- Critical tests:
+- High-priority tests:
+- Blockers found:
+- Notes:
+
+==================================================
+8. IMPORTANT LIMITS
+==================================================
+
+Do not create an audit.
+Do not list project problems.
+Do not suggest fixes.
+Do not create a roadmap.
+Do not create a backlog.
+Do not suggest new features.
+Do not modify code.
+Do not execute fixes.
+Do not turn this into a full regression test.
+
+If you find something suspicious while creating the Smoke Test, only record it in the “Future execution notes” section without recommending a fix.
+
+Example:
+“Manually validate this flow on a real device because it depends on permission/sensor/external API.”
+
+==================================================
+9. FINAL RESPONSE FORMAT
+==================================================
+
+After creating/updating the file, respond only with:
+
+1. Name of the created/updated file.
+2. Number of tests created by priority.
+3. Covered platforms.
+4. Identified commands, if any.
+5. Information that could not be safely determined.
+
+Do not send the entire content in chat unless I ask.
+Do not audit.
+Do not fix anything.
+Do not create features.
