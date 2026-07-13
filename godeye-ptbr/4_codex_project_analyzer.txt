@@ -853,3 +853,125 @@ Diga claramente:
 - Não faça correções até eu aprovar.
 
 No final, quero que você responda como se estivesse entregando um relatório profissional para decidir as próximas prioridades do projeto.
+
+==================================================
+7. SALVAMENTO OBRIGATÓRIO DO RELATÓRIO
+==================================================
+
+Ao concluir a auditoria, salve todo o relatório gerado em um arquivo Markdown na raiz do projeto.
+
+O nome do arquivo deve seguir este formato:
+
+<nome_do_projeto>_analyze_result.md
+
+Determine automaticamente o nome real do projeto utilizando, nesta ordem:
+
+1. manifesto principal do projeto;
+2. arquivo de solução ou projeto;
+3. pubspec.yaml;
+4. package.json;
+5. Cargo.toml;
+6. pyproject.toml;
+7. pom.xml;
+8. build.gradle;
+9. arquivos *.csproj ou *.sln;
+10. README;
+11. nome do repositório;
+12. nome da pasta raiz.
+
+Normalize o nome para utilização no arquivo:
+
+- substitua espaços por underscores;
+- remova caracteres inválidos;
+- preserve um nome legível;
+- não utilize literalmente “nome_do_projeto”.
+
+Exemplo:
+
+Remotium_analyze_result.md
+
+O arquivo deve conter integralmente:
+
+- resumo executivo;
+- escopo analisado;
+- mapa do projeto;
+- comandos executados;
+- testes executados;
+- limitações;
+- Top 10 achados;
+- achados P0;
+- achados P1;
+- achados P2;
+- achados P3;
+- achados por área;
+- fluxos analisados;
+- arquivos críticos;
+- métricas;
+- riscos ocultos;
+- plano de correção;
+- matriz de testes;
+- decisões de produto;
+- conclusão final.
+
+Não resuma ou reduza o conteúdo ao salvar.
+
+O conteúdo do arquivo deve corresponder ao relatório completo solicitado neste prompt.
+
+As únicas alterações permitidas durante esta auditoria são a criação ou atualização do arquivo:
+
+<nome_do_projeto>_analyze_result.md
+
+Não altere:
+
+- código-fonte;
+- configurações;
+- dependências;
+- documentação existente;
+- arquivos de build;
+- arquivos de teste;
+- arquivos de ambiente.
+
+Antes de iniciar, execute:
+
+git status --short
+git branch --show-current
+git rev-parse HEAD
+
+Registre no relatório:
+
+- branch analisada;
+- commit analisado;
+- estado inicial do repositório;
+- arquivos já modificados antes da auditoria.
+
+Ao finalizar, execute novamente:
+
+git status --short
+
+Confirme que nenhum arquivo do projeto foi alterado além de:
+
+<nome_do_projeto>_analyze_result.md
+
+Antes de encerrar:
+
+1. confirme que o arquivo foi criado;
+2. abra e revise o arquivo;
+3. confirme que o relatório está completo;
+4. verifique se não existem seções vazias;
+5. verifique se não existem placeholders;
+6. verifique se o texto literal “nome_do_projeto” foi substituído;
+7. confirme que nenhum arquivo de código foi alterado.
+
+Na resposta final do chat, informe:
+
+- nome do projeto identificado;
+- caminho do arquivo criado;
+- branch analisada;
+- commit analisado;
+- quantidade de achados P0;
+- quantidade de achados P1;
+- quantidade de achados P2;
+- quantidade de achados P3;
+- comandos que falharam;
+- limitações importantes;
+- confirmação de que nenhum arquivo de código foi alterado.
