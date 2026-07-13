@@ -1,0 +1,1702 @@
+Ative o modo “Olho de Deus — Performance” neste projeto.
+
+Não altere nada no projeto.
+Não aplique otimizações.
+Não refatore.
+Não modifique código.
+Não atualize dependências.
+Não altere configurações.
+Não faça commits.
+Não faça push.
+
+Sua tarefa é SOMENTE investigar, medir, diagnosticar, documentar e propor melhorias de performance.
+
+Quero uma auditoria completa, extremamente crítica e detalhada, focada exclusivamente em:
+
+- desempenho;
+- performance;
+- latência;
+- responsividade;
+- consumo de CPU;
+- consumo de GPU;
+- consumo de memória RAM;
+- consumo de disco;
+- consumo de rede;
+- consumo de bateria;
+- tempo de inicialização;
+- tempo de carregamento;
+- tempo de resposta;
+- escalabilidade;
+- estabilidade em sessões longas;
+- eficiência de código;
+- eficiência arquitetural;
+- uso adequado do hardware;
+- comportamento em dispositivos fracos;
+- comportamento com grandes volumes de dados;
+- comportamento com múltiplas operações simultâneas.
+
+Analise como se uma equipe composta por:
+
+- engenheiros de performance;
+- arquitetos de software;
+- especialistas em concorrência;
+- especialistas em sistemas operacionais;
+- especialistas em redes;
+- especialistas em banco de dados;
+- especialistas em memória e garbage collection;
+- especialistas em renderização;
+- especialistas em aplicativos mobile;
+- especialistas em aplicativos desktop;
+- especialistas em backend;
+- especialistas em profiling;
+- especialistas em benchmark;
+- especialistas em DevOps;
+- especialistas em observabilidade;
+- QAs especializados em performance;
+- usuários com hardware de entrada;
+- usuários com internet lenta ou instável;
+- usuários com grandes volumes de dados;
+- usuários executando o sistema por várias horas;
+
+estivesse analisando todo o projeto simultaneamente.
+
+==================================================
+0. REGRA PRINCIPAL
+==================================================
+
+NÃO aplique nenhuma correção.
+
+NÃO altere arquivos de código.
+
+NÃO modifique a arquitetura.
+
+NÃO implemente otimizações.
+
+NÃO atualize bibliotecas.
+
+NÃO remova dependências.
+
+NÃO altere configurações de build.
+
+NÃO faça commits.
+
+NÃO faça push.
+
+As únicas alterações permitidas são a criação ou atualização do relatório:
+
+<nome_do_projeto>_performance_enhancement.md
+
+O relatório deve ser criado na raiz do projeto.
+
+==================================================
+1. IDENTIFICAÇÃO DO PROJETO
+==================================================
+
+Antes da análise, determine o nome real do projeto.
+
+Use, nesta ordem:
+
+1. manifesto principal;
+2. arquivo de solução ou projeto;
+3. pubspec.yaml;
+4. package.json;
+5. Cargo.toml;
+6. pyproject.toml;
+7. pom.xml;
+8. build.gradle;
+9. arquivos *.csproj ou *.sln;
+10. README;
+11. nome do repositório;
+12. nome da pasta raiz.
+
+Normalize o nome para o arquivo:
+
+- substitua espaços por underscores;
+- remova caracteres inválidos;
+- mantenha o nome legível;
+- não use literalmente “nome_do_projeto”.
+
+Exemplo:
+
+Remotium_performance_enhancement.md
+
+==================================================
+2. PREPARAÇÃO OBRIGATÓRIA
+==================================================
+
+Antes de analisar performance:
+
+1. Leia toda a estrutura do projeto.
+
+2. Identifique:
+
+- linguagem;
+- framework;
+- runtime;
+- arquitetura;
+- plataformas alvo;
+- módulos;
+- camadas;
+- serviços;
+- APIs;
+- banco de dados;
+- persistência;
+- sistema de cache;
+- gerenciamento de estado;
+- comunicação de rede;
+- comunicação entre processos;
+- comunicação entre dispositivos;
+- concorrência;
+- processamento em segundo plano;
+- sistema de logs;
+- processo de build;
+- processo de release;
+- dependências principais.
+
+3. Leia a documentação existente:
+
+- README;
+- docs/;
+- arquitetura.md;
+- CHANGELOG;
+- TODO;
+- FIXME;
+- arquivos de tarefas;
+- relatórios anteriores;
+- documentação de API;
+- documentação de protocolo;
+- arquivos de benchmark;
+- arquivos de profiling;
+- configurações de build;
+- configurações de ambiente.
+
+4. Entenda o propósito real do produto.
+
+5. Identifique os fluxos principais.
+
+6. Identifique os fluxos mais sensíveis à latência.
+
+7. Identifique quais operações acontecem:
+
+- na inicialização;
+- a cada frame;
+- a cada interação;
+- a cada atualização de estado;
+- a cada requisição;
+- a cada mensagem;
+- a cada consulta;
+- em background;
+- em loops;
+- em tarefas periódicas;
+- durante conexão;
+- durante reconexão;
+- durante sincronização;
+- durante encerramento.
+
+==================================================
+3. ESTADO DO REPOSITÓRIO
+==================================================
+
+Antes da análise, execute:
+
+git status --short
+git branch --show-current
+git rev-parse HEAD
+
+Registre:
+
+- branch analisada;
+- commit analisado;
+- arquivos já modificados;
+- arquivos não rastreados;
+- estado inicial do repositório.
+
+Ao finalizar, execute novamente:
+
+git status --short
+
+Confirme que nenhum arquivo foi alterado além de:
+
+<nome_do_projeto>_performance_enhancement.md
+
+Se ferramentas gerarem caches ou artefatos temporários, registre isso no relatório.
+
+==================================================
+4. CLASSIFICAÇÃO DAS EVIDÊNCIAS
+==================================================
+
+Cada achado deve ser marcado como:
+
+CONFIRMADO
+
+Existe evidência direta por:
+
+- código;
+- benchmark;
+- profiler;
+- teste;
+- log;
+- execução;
+- métrica;
+- comportamento reproduzido.
+
+PROVÁVEL
+
+Existe um padrão com alta probabilidade de causar perda de performance, mas ainda precisa de medição.
+
+HIPÓTESE
+
+Existe risco plausível, porém não há evidência suficiente para afirmar que já ocorre.
+
+PRECISA DE VALIDAÇÃO REAL
+
+Depende de:
+
+- hardware físico;
+- aparelho real;
+- rede real;
+- build release;
+- grande volume de dados;
+- longa sessão;
+- múltiplos usuários;
+- múltiplos dispositivos;
+- ambiente de produção;
+- sistema operacional específico.
+
+DECISÃO ARQUITETURAL
+
+Não é necessariamente um erro, mas possui custos e benefícios de performance que precisam ser documentados.
+
+Não invente resultados.
+
+Não apresente estimativas como medições.
+
+Não atribua percentuais de ganho sem benchmark.
+
+==================================================
+5. DIAGNÓSTICOS SEGUROS
+==================================================
+
+Execute apenas comandos seguros e não destrutivos.
+
+Escolha os comandos de acordo com a tecnologia encontrada.
+
+Quando aplicável, execute:
+
+- analyzer;
+- linter;
+- testes existentes;
+- build debug;
+- build profile;
+- build release;
+- benchmarks existentes;
+- análise de tamanho;
+- ferramentas de profiling já disponíveis;
+- ferramentas de análise estática;
+- ferramentas de dependências;
+- ferramentas de diagnóstico de memória;
+- ferramentas de diagnóstico de CPU;
+- ferramentas de tracing;
+- testes de inicialização existentes.
+
+Não instale ferramentas sem autorização.
+
+Não altere código para instrumentar.
+
+Não desative testes.
+
+Não altere configurações para fazer comandos passarem.
+
+Para cada comando, registre:
+
+- comando completo;
+- diretório;
+- objetivo;
+- duração aproximada;
+- resultado;
+- warnings;
+- erros;
+- limitações.
+
+Se um comando falhar, registre:
+
+- comando;
+- erro;
+- causa provável;
+- se a causa está no ambiente ou no projeto;
+- o que deixou de ser validado.
+
+==================================================
+6. OBJETIVO DA AUDITORIA
+==================================================
+
+Encontre tudo que possa provocar:
+
+- alta latência;
+- atraso de resposta;
+- atraso entre entrada e ação;
+- travamentos;
+- congelamentos;
+- perda de frames;
+- jank;
+- uso excessivo de CPU;
+- uso excessivo de GPU;
+- uso excessivo de RAM;
+- vazamento de memória;
+- garbage collection excessivo;
+- pressão de memória;
+- consumo excessivo de disco;
+- consumo excessivo de rede;
+- consumo excessivo de bateria;
+- inicialização lenta;
+- telas lentas;
+- carregamentos repetidos;
+- consultas caras;
+- processamento duplicado;
+- cálculos repetidos;
+- serialização excessiva;
+- cópias desnecessárias;
+- loops desnecessários;
+- algoritmos ineficientes;
+- polling excessivo;
+- timers excessivos;
+- logs excessivos;
+- filas sem limite;
+- falta de backpressure;
+- contenção;
+- deadlocks;
+- starvation;
+- tarefas bloqueantes;
+- operações síncronas no caminho crítico;
+- awaits sequenciais desnecessários;
+- paralelismo mal aplicado;
+- excesso de threads;
+- excesso de tarefas;
+- cache inadequado;
+- cache sem limite;
+- falta de cache onde seria justificável;
+- invalidação incorreta;
+- N+1 queries;
+- falta de índices;
+- filtros em memória;
+- ausência de paginação;
+- ausência de lazy loading;
+- listas sem virtualização;
+- rebuilds excessivos;
+- assets pesados;
+- imagens não otimizadas;
+- dependências pesadas;
+- tamanho excessivo de build;
+- código de debug presente em release;
+- degradação progressiva durante o uso;
+- degradação com aumento de dados;
+- degradação com múltiplos usuários;
+- degradação com múltiplas conexões;
+- degradação em hardware fraco.
+
+==================================================
+7. LATÊNCIA
+==================================================
+
+Mapeie os fluxos onde a resposta precisa ser rápida.
+
+Exemplos:
+
+- toque até feedback visual;
+- clique até resposta;
+- teclado até ação;
+- mouse até atualização;
+- comando remoto até execução;
+- abertura de tela;
+- inicialização;
+- conexão;
+- descoberta;
+- autenticação;
+- sincronização;
+- consulta;
+- salvamento;
+- reconexão;
+- envio de mensagem;
+- recebimento de mensagem;
+- renderização;
+- atualização de estado.
+
+Para cada fluxo, decomponha:
+
+Latência total =
+entrada
++ processamento local
++ fila
++ serialização
++ envio
++ rede
++ processamento remoto
++ resposta
++ desserialização
++ atualização de estado
++ renderização
+
+Informe:
+
+- etapas;
+- componentes;
+- esperas;
+- possíveis gargalos;
+- gargalos confirmados;
+- risco de jitter;
+- risco de picos;
+- risco de degradação;
+- pontos onde medir;
+- benchmark necessário;
+- meta sugerida.
+
+Quando não existir medição, deixe claro que a meta é proposta.
+
+Não invente a latência atual.
+
+Analise, quando possível:
+
+- média;
+- mínimo;
+- máximo;
+- p50;
+- p95;
+- p99;
+- pior caso.
+
+==================================================
+8. INICIALIZAÇÃO
+==================================================
+
+Analise:
+
+- cold start;
+- warm start;
+- retomada;
+- tempo até primeira tela;
+- tempo até primeira interação;
+- inicialização de serviços;
+- inicialização de plugins;
+- leitura de configurações;
+- carregamento de dados;
+- conexão com banco;
+- conexão de rede;
+- migrations;
+- leitura de arquivos;
+- carregamento de assets;
+- tarefas executadas cedo demais;
+- inicialização duplicada;
+- dependências pesadas;
+- bloqueios esperando rede;
+- carregamentos sequenciais;
+- carregamentos concorrentes excessivos.
+
+Identifique o que pode:
+
+- ser adiado;
+- ser carregado sob demanda;
+- ser executado em paralelo;
+- ser removido do caminho crítico;
+- ser armazenado em cache;
+- ser simplificado.
+
+==================================================
+9. UI, RENDERIZAÇÃO E RESPONSIVIDADE
+==================================================
+
+Analise:
+
+- rebuilds excessivos;
+- recomposições excessivas;
+- componentes grandes;
+- áreas inteiras atualizadas sem necessidade;
+- cálculos durante renderização;
+- listas grandes;
+- ausência de virtualização;
+- ausência de paginação;
+- layouts complexos;
+- imagens pesadas;
+- decodificação de imagens;
+- sombras;
+- blur;
+- transparências;
+- clipping;
+- shaders;
+- animações;
+- atualizações em alta frequência;
+- listeners amplos;
+- estado global;
+- processamento na thread da interface;
+- atraso entre input e feedback;
+- perda de frames;
+- jank;
+- travamentos curtos;
+- comportamento em telas pequenas;
+- comportamento em altas resoluções;
+- comportamento com múltiplos monitores;
+- comportamento em taxas de atualização diferentes.
+
+Considere os orçamentos teóricos:
+
+- 16,67 ms por frame em 60 Hz;
+- 11,11 ms por frame em 90 Hz;
+- 8,33 ms por frame em 120 Hz.
+
+Não trate esses valores como medição do projeto.
+
+==================================================
+10. CPU E PROCESSAMENTO
+==================================================
+
+Procure:
+
+- algoritmos de complexidade alta;
+- loops aninhados;
+- buscas lineares repetidas;
+- ordenações repetidas;
+- parsing repetido;
+- conversões repetidas;
+- regex custosa;
+- serialização repetida;
+- criptografia no caminho crítico;
+- compressão no caminho crítico;
+- cálculos dentro da UI;
+- cálculos dentro de getters;
+- polling;
+- busy waiting;
+- operações duplicadas;
+- trabalho feito mesmo sem mudança;
+- processamento em frequência excessiva;
+- processamento que poderia ser incremental;
+- processamento que poderia ser movido para background.
+
+Para cada item, avalie:
+
+- frequência;
+- quantidade de dados;
+- complexidade;
+- crescimento esperado;
+- impacto atual;
+- impacto futuro;
+- impacto em latência;
+- impacto em consumo.
+
+==================================================
+11. MEMÓRIA E RECURSOS
+==================================================
+
+Analise:
+
+- alocações frequentes;
+- objetos temporários;
+- buffers;
+- listas copiadas;
+- strings copiadas;
+- caches sem limite;
+- filas sem limite;
+- históricos sem limite;
+- listeners;
+- subscriptions;
+- streams;
+- controllers;
+- timers;
+- sockets;
+- arquivos;
+- handles;
+- imagens;
+- recursos nativos;
+- closures mantendo referências;
+- objetos globais;
+- singletons;
+- páginas mantidas vivas;
+- recursos não descartados;
+- recursos não fechados;
+- crescimento de memória em sessão longa;
+- crescimento após conectar e desconectar;
+- crescimento após abrir e fechar telas;
+- pressão sobre o garbage collector.
+
+Verifique se recursos são:
+
+- criados;
+- reutilizados;
+- encerrados;
+- descartados;
+- cancelados;
+- removidos;
+- desalocados.
+
+Proponha testes de memória para:
+
+- 10 minutos;
+- 1 hora;
+- várias horas;
+- abertura repetida de telas;
+- conexão repetida;
+- reconexão repetida;
+- background e foreground;
+- grandes volumes;
+- múltiplos clientes.
+
+==================================================
+12. CONCORRÊNCIA E ASSÍNCRONO
+==================================================
+
+Procure:
+
+- awaits sequenciais desnecessários;
+- operações assíncronas sem await;
+- fire-and-forget perigoso;
+- tarefas duplicadas;
+- condições de corrida;
+- locks amplos;
+- contenção;
+- deadlocks;
+- starvation;
+- cancelamento ausente;
+- timeout ausente;
+- timeout inadequado;
+- retry sem limite;
+- retry sem backoff;
+- respostas antigas sobrescrevendo novas;
+- filas sem prioridade;
+- filas sem limite;
+- ausência de backpressure;
+- paralelismo excessivo;
+- paralelismo insuficiente;
+- acesso concorrente a estado;
+- eventos disparados em excesso;
+- reentrância.
+
+Avalie o impacto em:
+
+- latência média;
+- p95;
+- p99;
+- jitter;
+- CPU;
+- memória;
+- estabilidade.
+
+==================================================
+13. REDE E COMUNICAÇÃO
+==================================================
+
+Analise:
+
+- abertura de conexão;
+- handshake;
+- TLS;
+- autenticação;
+- descoberta;
+- keep-alive;
+- sockets;
+- HTTP;
+- WebSocket;
+- TCP;
+- UDP;
+- IPC;
+- RPC;
+- serialização;
+- desserialização;
+- compressão;
+- tamanho de payload;
+- frequência de pacotes;
+- batching;
+- mensagens redundantes;
+- confirmação;
+- retry;
+- timeout;
+- heartbeat;
+- polling;
+- controle de fluxo;
+- backpressure;
+- reconexão;
+- tratamento de perda;
+- tratamento de duplicação;
+- mensagens fora de ordem.
+
+Procure:
+
+- conexão recriada por operação;
+- ausência de pooling;
+- payloads desnecessariamente grandes;
+- JSON excessivo no caminho crítico;
+- múltiplas cópias do mesmo payload;
+- envio mesmo sem alteração;
+- falta de debounce;
+- falta de throttle;
+- descoberta contínua;
+- reconexão agressiva;
+- loops de reconexão;
+- logs de cada pacote;
+- broadcast desnecessário.
+
+Considere:
+
+- rede local;
+- Wi-Fi bom;
+- Wi-Fi congestionado;
+- alta latência;
+- perda de pacotes;
+- jitter;
+- VPN;
+- firewall;
+- troca de rede;
+- suspensão;
+- múltiplos clientes;
+- servidor indisponível.
+
+==================================================
+14. BANCO, PERSISTÊNCIA E DISCO
+==================================================
+
+Procure:
+
+- N+1 queries;
+- falta de índices;
+- índices inadequados;
+- consultas sem limite;
+- leitura de tabelas completas;
+- filtros em memória;
+- ordenações em memória;
+- agregações em memória;
+- escrita individual repetida;
+- ausência de batch;
+- ausência de transações;
+- transações longas;
+- locks;
+- migrations custosas;
+- arquivos reescritos completamente;
+- flush excessivo;
+- leitura repetida;
+- ausência de paginação;
+- ausência de prepared statements;
+- conexão aberta e fechada repetidamente;
+- disco acessado na thread principal;
+- serialização de grandes estruturas.
+
+Considere crescimento com:
+
+- 100 registros;
+- 1.000 registros;
+- 10.000 registros;
+- 100.000 registros;
+- meses de histórico;
+- anos de histórico.
+
+Não afirme degradação sem evidência.
+
+Explique como validar.
+
+==================================================
+15. CACHE
+==================================================
+
+Analise:
+
+- o que é armazenado;
+- onde;
+- tamanho;
+- duração;
+- chave;
+- granularidade;
+- invalidação;
+- concorrência;
+- consistência;
+- crescimento;
+- impacto em memória;
+- impacto em latência;
+- risco de dados antigos;
+- risco de cache stampede;
+- risco de duplicação.
+
+Classifique cada cache como:
+
+- adequado;
+- ausente;
+- excessivo;
+- sem limite;
+- mal invalidado;
+- pouco útil;
+- prejudicial;
+- precisa medição.
+
+Não recomende cache automaticamente.
+
+Informe:
+
+- custo;
+- benefício;
+- risco;
+- complexidade;
+- condição em que vale a pena.
+
+==================================================
+16. BATERIA E BACKGROUND
+==================================================
+
+Quando aplicável, analise:
+
+- timers;
+- polling;
+- sensores;
+- Bluetooth;
+- Wi-Fi;
+- sockets persistentes;
+- wakelocks;
+- serviços em background;
+- atualização frequente;
+- animações contínuas;
+- telemetria;
+- logs;
+- escrita em disco;
+- reconexão;
+- localização;
+- notificações;
+- processamento sem interação.
+
+Verifique o que continua executando quando:
+
+- tela está oculta;
+- aplicativo está minimizado;
+- dispositivo está bloqueado;
+- conexão foi perdida;
+- usuário está inativo;
+- aplicativo está em segundo plano.
+
+==================================================
+17. DEPENDÊNCIAS
+==================================================
+
+Analise:
+
+- dependências pesadas;
+- dependências duplicadas;
+- bibliotecas usadas parcialmente;
+- wrappers desnecessários;
+- versões antigas;
+- pacotes abandonados;
+- bibliotecas com alto custo de inicialização;
+- custo em memória;
+- custo em CPU;
+- custo no tamanho da build;
+- plugins nativos;
+- bridges;
+- platform channels;
+- reflection;
+- FFI;
+- interoperabilidade;
+- serialização entre runtimes.
+
+Para cada dependência crítica, informe:
+
+- finalidade;
+- custo;
+- risco;
+- impacto;
+- alternativa;
+- esforço de substituição;
+- recomendação.
+
+Não recomende substituição sem justificar.
+
+==================================================
+18. BUILD E RELEASE
+==================================================
+
+Analise:
+
+- debug;
+- profile;
+- release;
+- JIT;
+- AOT;
+- otimizações do compilador;
+- minificação;
+- tree shaking;
+- símbolos;
+- asserts;
+- logs;
+- código de debug;
+- assets;
+- fontes;
+- imagens;
+- bibliotecas nativas;
+- arquiteturas incluídas;
+- arquivos duplicados;
+- tamanho do instalador;
+- tamanho instalado;
+- tempo de startup;
+- tempo de build;
+- configuração por plataforma.
+
+Procure:
+
+- arquivos desnecessários;
+- assets não utilizados;
+- dependências não utilizadas;
+- código de teste incluído;
+- logs ativos em release;
+- configurações inconsistentes;
+- diferenças de comportamento entre debug e release.
+
+==================================================
+19. LOGS E OBSERVABILIDADE
+==================================================
+
+Analise:
+
+- logs em loops;
+- logs por frame;
+- logs por pacote;
+- logs por evento;
+- escrita síncrona;
+- serialização para log;
+- arquivos sem rotação;
+- telemetria excessiva;
+- telemetria no caminho crítico;
+- ausência de timestamps;
+- ausência de correlação;
+- ausência de métricas;
+- ausência de traces.
+
+Verifique se é possível medir:
+
+- startup;
+- latência de requisição;
+- latência de processamento;
+- renderização;
+- consultas;
+- filas;
+- memória;
+- CPU;
+- erros;
+- reconexões;
+- retries;
+- timeouts;
+- perda de mensagens.
+
+Proponha instrumentação, mas não implemente.
+
+==================================================
+20. ESCALABILIDADE
+==================================================
+
+Analise o comportamento com:
+
+- mais usuários;
+- mais dispositivos;
+- mais conexões;
+- mais mensagens;
+- mais registros;
+- mais arquivos;
+- mais histórico;
+- mais tarefas simultâneas;
+- mais tempo de execução;
+- hardware mais fraco;
+- rede mais lenta;
+- telas maiores;
+- maiores taxas de atualização.
+
+Identifique:
+
+- crescimento linear;
+- crescimento quadrático;
+- pontos de contenção;
+- recursos globais;
+- singletons críticos;
+- filas sem limite;
+- caches sem limite;
+- listas sem paginação;
+- gargalos centrais;
+- limites implícitos;
+- operações que ficam progressivamente mais lentas.
+
+==================================================
+21. ANÁLISE ESPECÍFICA DA TECNOLOGIA
+==================================================
+
+Adapte a auditoria à tecnologia real.
+
+Se for Flutter/Dart, procure especialmente:
+
+- rebuilds excessivos;
+- widgets grandes;
+- uso inadequado de const;
+- watch amplo de estado;
+- providers ou notifiers globais;
+- setState abrangente;
+- cálculos dentro de build;
+- listas não virtualizadas;
+- shrinkWrap excessivo;
+- IntrinsicHeight;
+- IntrinsicWidth;
+- imagens sem dimensões;
+- decode de imagens;
+- animações;
+- CustomPainter;
+- clipping;
+- opacity;
+- saveLayer;
+- platform channels frequentes;
+- isolates;
+- compute;
+- streams;
+- timers;
+- controllers não descartados;
+- plugins;
+- diferenças entre debug, profile e release.
+
+Se for .NET/C#, procure especialmente:
+
+- .Result;
+- .Wait();
+- bloqueios síncronos;
+- async/await inadequado;
+- LINQ em caminhos críticos;
+- alocações;
+- boxing;
+- strings;
+- Task.Run inadequado;
+- ThreadPool;
+- locks;
+- HttpClient recriado;
+- sockets;
+- streams;
+- buffers;
+- serialização;
+- reflection;
+- logging;
+- Large Object Heap;
+- IDisposable;
+- eventos não removidos;
+- trimming;
+- ReadyToRun;
+- single-file;
+- self-contained.
+
+Se for Web/JavaScript/TypeScript, procure especialmente:
+
+- bundle excessivo;
+- tree shaking;
+- re-render;
+- event loop;
+- tarefas longas;
+- layout thrashing;
+- network waterfall;
+- requests duplicadas;
+- assets;
+- imagens;
+- cache HTTP;
+- memory leaks;
+- listeners;
+- WebSockets;
+- workers;
+- lazy loading.
+
+Se for backend ou banco, procure especialmente:
+
+- N+1;
+- pooling;
+- índices;
+- locks;
+- transações;
+- filas;
+- cache;
+- timeout;
+- retry;
+- backpressure;
+- payload;
+- paginação;
+- concorrência;
+- observabilidade.
+
+Não inclua recomendações irrelevantes à stack encontrada.
+
+==================================================
+22. PRIORIZAÇÃO
+==================================================
+
+Classifique todos os achados em:
+
+P0 — Corrigir imediatamente
+
+Exemplos:
+
+- deadlock;
+- loop infinito;
+- vazamento grave;
+- crescimento ilimitado;
+- CPU excessiva sem necessidade;
+- latência que inviabiliza o fluxo principal;
+- congelamento recorrente;
+- fila sem limite com risco real;
+- reconexão em loop;
+- consumo capaz de derrubar o sistema;
+- performance que torna o produto inutilizável.
+
+P1 — Corrigir antes de beta ou release
+
+Exemplos:
+
+- latência perceptível em fluxo principal;
+- jank frequente;
+- inicialização excessivamente lenta;
+- trabalho pesado na thread principal;
+- N+1 relevante;
+- consultas caras;
+- carregamento integral crescente;
+- ausência de paginação;
+- polling desnecessário;
+- recurso não liberado;
+- cache sem limite;
+- retry sem backoff;
+- ausência de timeout;
+- degradação real com dados.
+
+P2 — Melhoria importante
+
+Exemplos:
+
+- redução relevante de rebuilds;
+- redução de alocação;
+- melhoria de consulta;
+- lazy loading;
+- batching;
+- melhor paralelismo;
+- melhor cache;
+- melhoria de observabilidade;
+- redução de tamanho;
+- prevenção de gargalo futuro.
+
+P3 — Futuro ou polimento
+
+Exemplos:
+
+- micro-otimização;
+- melhoria pouco perceptível;
+- otimização para escala ainda distante;
+- refinamento opcional;
+- benchmark complementar;
+- instrumentação adicional.
+
+Para cada achado, informe:
+
+- prioridade;
+- título;
+- categoria;
+- status da evidência;
+- arquivo;
+- linha;
+- descrição;
+- impacto no usuário;
+- impacto técnico;
+- impacto em latência;
+- impacto em CPU;
+- impacto em GPU;
+- impacto em memória;
+- impacto em rede;
+- impacto em disco;
+- impacto em bateria;
+- frequência;
+- probabilidade;
+- esforço;
+- risco de implementação;
+- risco de não corrigir;
+- causa provável;
+- solução simples;
+- solução robusta;
+- dependências;
+- método de validação;
+- critério de aprovação.
+
+Escalas:
+
+Impacto:
+- crítico;
+- alto;
+- médio;
+- baixo.
+
+Probabilidade:
+- alta;
+- média;
+- baixa.
+
+Esforço:
+- XS;
+- S;
+- M;
+- L;
+- XL.
+
+==================================================
+23. FORMATO DO RELATÓRIO
+==================================================
+
+Salve o relatório em:
+
+<nome_do_projeto>_performance_enhancement.md
+
+Use a seguinte estrutura:
+
+# Auditoria e Plano de Melhoria de Performance
+
+## 1. Resumo executivo
+
+- nome do projeto;
+- veredito;
+- estado atual;
+- maior gargalo;
+- maior risco;
+- maior quick win;
+- maior risco futuro;
+- nível de confiança;
+- recomendação imediata.
+
+## 2. Escopo analisado
+
+- pastas;
+- módulos;
+- arquivos;
+- plataformas;
+- fluxos;
+- comandos;
+- testes;
+- builds;
+- benchmarks;
+- profiling;
+- limitações.
+
+## 3. Estado do repositório
+
+- branch;
+- commit;
+- status inicial;
+- status final;
+- arquivos criados;
+- confirmação de que código não foi alterado.
+
+## 4. Mapa técnico
+
+- stack;
+- arquitetura;
+- módulos;
+- runtime;
+- banco;
+- rede;
+- estado;
+- cache;
+- concorrência;
+- build;
+- dependências críticas.
+
+## 5. Linha de base
+
+Liste apenas métricas realmente coletadas:
+
+- startup;
+- CPU;
+- GPU;
+- RAM;
+- frames;
+- queries;
+- rede;
+- disco;
+- tamanho de build;
+- p50;
+- p95;
+- p99.
+
+Quando não houver baseline, escreva claramente:
+
+“Não medido”.
+
+## 6. Top 10 achados
+
+Para cada:
+
+- prioridade;
+- título;
+- evidência;
+- impacto;
+- causa;
+- recomendação;
+- validação.
+
+## 7. Achados P0
+
+Use o formato completo definido anteriormente.
+
+## 8. Achados P1
+
+Use o mesmo formato.
+
+## 9. Achados P2
+
+Use o mesmo formato.
+
+## 10. Achados P3
+
+Use o mesmo formato.
+
+## 11. Achados por recurso
+
+Separar:
+
+- latência;
+- CPU;
+- GPU;
+- memória;
+- garbage collection;
+- rede;
+- disco;
+- bateria;
+- startup;
+- renderização;
+- banco;
+- concorrência;
+- build;
+- tamanho;
+- escalabilidade.
+
+## 12. Gargalos confirmados
+
+Liste somente os comprovados.
+
+## 13. Gargalos prováveis
+
+Liste os que possuem alta probabilidade.
+
+## 14. Hipóteses
+
+Liste o que depende de medição.
+
+## 15. Arquivos mais críticos
+
+Para cada:
+
+- responsabilidade;
+- frequência;
+- riscos;
+- achados;
+- recomendação.
+
+## 16. Dependências críticas
+
+Para cada:
+
+- finalidade;
+- custo;
+- impacto;
+- risco;
+- alternativa;
+- recomendação.
+
+## 17. Quick wins
+
+Para cada:
+
+- problema;
+- solução;
+- impacto esperado;
+- esforço;
+- risco;
+- arquivos prováveis;
+- validação.
+
+## 18. Metas propostas
+
+Para cada métrica:
+
+- valor atual medido;
+- valor atual desconhecido;
+- meta mínima;
+- meta desejável;
+- forma de medir.
+
+## 19. Plano de melhoria por prioridade
+
+Separar em:
+
+- P0;
+- P1;
+- P2;
+- P3.
+
+Para cada melhoria:
+
+- origem;
+- objetivo;
+- estratégia;
+- etapas;
+- arquivos prováveis;
+- dependências;
+- risco;
+- rollback;
+- esforço;
+- benchmark anterior;
+- benchmark posterior;
+- critério de aceitação;
+- regressão necessária.
+
+## 20. Matriz impacto versus esforço
+
+Crie uma tabela com:
+
+- melhoria;
+- prioridade;
+- impacto;
+- esforço;
+- risco;
+- dependências;
+- recomendação.
+
+Classifique como:
+
+- fazer imediatamente;
+- agendar;
+- medir antes;
+- adiar;
+- não recomendado.
+
+## 21. Ordem de implementação
+
+Defina a ordem racional, por exemplo:
+
+1. estabelecer baseline;
+2. instrumentar;
+3. corrigir P0;
+4. reduzir latência crítica;
+5. reduzir trabalho na thread principal;
+6. corrigir consultas;
+7. corrigir memória;
+8. otimizar rede;
+9. reduzir rebuilds;
+10. otimizar build;
+11. executar regressão.
+
+Adapte ao projeto.
+
+## 22. Roadmap por entregas
+
+Crie entregas pequenas e independentes.
+
+Para cada:
+
+- objetivo;
+- tarefas;
+- arquivos prováveis;
+- dependências;
+- risco;
+- métricas;
+- validação.
+
+## 23. Plano de benchmark
+
+Para cada benchmark:
+
+- objetivo;
+- ambiente;
+- hardware;
+- build;
+- entrada;
+- volume;
+- warm-up;
+- duração;
+- repetições;
+- métricas;
+- percentis;
+- critério de sucesso.
+
+## 24. Plano de profiling
+
+Para cada fluxo:
+
+- ferramenta;
+- cenário;
+- duração;
+- métricas;
+- pontos de captura;
+- forma de comparação;
+- resultado esperado.
+
+## 25. Testes em ambiente real
+
+Separar:
+
+- hardware fraco;
+- hardware intermediário;
+- hardware forte;
+- rede boa;
+- rede ruim;
+- rede instável;
+- sessão longa;
+- grande volume;
+- múltiplos clientes;
+- background;
+- release;
+- diferentes plataformas.
+
+## 26. Riscos de otimização
+
+Considere:
+
+- otimização prematura;
+- aumento de complexidade;
+- regressão funcional;
+- regressão de segurança;
+- inconsistência de cache;
+- troca de CPU por memória;
+- troca de memória por rede;
+- melhora na média e piora no p99;
+- benchmark não representativo;
+- comportamento diferente entre plataformas.
+
+## 27. Melhorias não recomendadas
+
+Liste otimizações que parecem boas, mas não possuem evidência suficiente.
+
+Para cada:
+
+- proposta;
+- motivo aparente;
+- risco;
+- evidência necessária;
+- condição para reconsiderar.
+
+## 28. Critérios de conclusão
+
+Defina critérios como:
+
+- nenhum P0 aberto;
+- P1 críticos resolvidos;
+- baseline registrado;
+- benchmarks reproduzíveis;
+- memória estável;
+- latência dentro da meta;
+- ausência de regressão;
+- build release validada;
+- resultados documentados.
+
+## 29. Próxima melhor ação
+
+Indique apenas a próxima ação mais racional.
+
+## 30. Conclusão
+
+Informe claramente:
+
+- o que está bom;
+- o que está lento;
+- o que provavelmente ficará lento;
+- o que ainda não foi medido;
+- maior gargalo;
+- maior risco;
+- o que deve ser corrigido primeiro;
+- se a performance está adequada para beta;
+- se está adequada para usuários externos.
+
+==================================================
+24. REGRAS DAS RECOMENDAÇÕES
+==================================================
+
+Não dê recomendações genéricas.
+
+Não diga apenas:
+
+- use cache;
+- use async;
+- use threads;
+- reduza rebuilds;
+- use índices;
+- use lazy loading;
+- use compressão;
+- troque de linguagem.
+
+Toda recomendação deve explicar:
+
+1. qual gargalo resolve;
+2. qual evidência existe;
+3. onde aplicar;
+4. por que aplicar;
+5. qual recurso reduz;
+6. qual recurso pode aumentar;
+7. qual esforço;
+8. qual risco;
+9. como medir antes;
+10. como medir depois;
+11. qual critério determina sucesso.
+
+==================================================
+25. VERIFICAÇÃO FINAL
+==================================================
+
+Antes de encerrar:
+
+1. Confirme que o projeto inteiro foi analisado.
+
+2. Confirme que os fluxos críticos foram analisados.
+
+3. Confirme que cada achado possui:
+
+- prioridade;
+- evidência;
+- impacto;
+- esforço;
+- risco;
+- recomendação;
+- validação.
+
+4. Confirme que hipóteses estão identificadas.
+
+5. Confirme que não existem métricas inventadas.
+
+6. Confirme que código não foi alterado.
+
+7. Execute:
+
+git status --short
+
+8. Confirme que somente este arquivo foi criado ou alterado:
+
+<nome_do_projeto>_performance_enhancement.md
+
+9. Abra e revise o relatório.
+
+10. Verifique se não existem:
+
+- seções vazias;
+- placeholders;
+- texto literal “nome_do_projeto”;
+- exemplos não substituídos;
+- recomendações genéricas;
+- estimativas apresentadas como fatos;
+- ganhos percentuais inventados;
+- achados sem evidência;
+- prioridades sem justificativa.
+
+==================================================
+26. RESPOSTA FINAL NO CHAT
+==================================================
+
+Depois de salvar o relatório, responda no chat apenas com:
+
+1. nome do projeto;
+2. arquivo criado;
+3. branch analisada;
+4. commit analisado;
+5. quantidade de achados P0;
+6. quantidade de achados P1;
+7. quantidade de achados P2;
+8. quantidade de achados P3;
+9. comandos executados;
+10. comandos que falharam;
+11. limitações;
+12. maior gargalo;
+13. maior quick win;
+14. próxima ação recomendada;
+15. confirmação de que nenhum arquivo de código foi alterado.
+
+Não aplique nenhuma correção até eu autorizar explicitamente.
