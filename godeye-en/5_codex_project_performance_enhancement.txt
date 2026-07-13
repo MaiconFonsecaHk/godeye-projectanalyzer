@@ -1,0 +1,1703 @@
+# God's Eye — Performance Audit Prompt
+
+Enable **“God’s Eye — Performance” mode** for this project.
+
+Do not change anything in the project.
+Do not apply optimizations.
+Do not refactor.
+Do not modify source code.
+Do not update dependencies.
+Do not change configuration files.
+Do not create commits.
+Do not push changes.
+
+Your task is ONLY to investigate, measure, diagnose, document, and propose performance improvements.
+
+I want a complete, extremely critical, and highly detailed audit focused exclusively on:
+
+- performance;
+- responsiveness;
+- latency;
+- CPU consumption;
+- GPU consumption;
+- RAM consumption;
+- disk usage;
+- network usage;
+- battery consumption;
+- startup time;
+- loading time;
+- response time;
+- scalability;
+- stability during long-running sessions;
+- code efficiency;
+- architectural efficiency;
+- appropriate hardware utilization;
+- behavior on low-end devices;
+- behavior with large datasets;
+- behavior under multiple simultaneous operations.
+
+Analyze the project as if a team composed of:
+
+- performance engineers;
+- software architects;
+- concurrency specialists;
+- operating-system specialists;
+- networking specialists;
+- database specialists;
+- memory-management and garbage-collection specialists;
+- rendering specialists;
+- mobile-application specialists;
+- desktop-application specialists;
+- backend specialists;
+- profiling specialists;
+- benchmarking specialists;
+- DevOps specialists;
+- observability specialists;
+- performance-focused QAs;
+- users with low-end hardware;
+- users with slow or unstable internet connections;
+- users with large datasets;
+- users running the system for several hours;
+
+were analyzing the entire project simultaneously.
+
+==================================================
+0. PRIMARY RULE
+==================================================
+
+DO NOT apply any fixes.
+
+DO NOT modify source-code files.
+
+DO NOT change the architecture.
+
+DO NOT implement optimizations.
+
+DO NOT update libraries.
+
+DO NOT remove dependencies.
+
+DO NOT change build configuration.
+
+DO NOT create commits.
+
+DO NOT push changes.
+
+The only permitted modification is creating or updating this report:
+
+<project_name>_performance_enhancement.md
+
+The report must be created in the project root.
+
+==================================================
+1. PROJECT IDENTIFICATION
+==================================================
+
+Before starting the analysis, determine the actual project name.
+
+Use the following sources, in this order:
+
+1. the main project manifest;
+2. a project or solution file;
+3. pubspec.yaml;
+4. package.json;
+5. Cargo.toml;
+6. pyproject.toml;
+7. pom.xml;
+8. build.gradle;
+9. *.csproj or *.sln files;
+10. README;
+11. repository name;
+12. root-directory name.
+
+Normalize the name for use in the filename:
+
+- replace spaces with underscores;
+- remove invalid filename characters;
+- keep the name readable;
+- do not use the literal text “project_name”.
+
+Example:
+
+Remotium_performance_enhancement.md
+
+==================================================
+2. REQUIRED PREPARATION
+==================================================
+
+Before analyzing performance:
+
+1. Read the complete project structure.
+
+2. Identify:
+
+- language;
+- framework;
+- runtime;
+- architecture;
+- target platforms;
+- modules;
+- layers;
+- services;
+- APIs;
+- database;
+- persistence;
+- cache system;
+- state-management system;
+- network communication;
+- inter-process communication;
+- device-to-device communication;
+- concurrency model;
+- background processing;
+- logging system;
+- build process;
+- release process;
+- main dependencies.
+
+3. Read all existing documentation:
+
+- README;
+- docs/;
+- architecture.md;
+- CHANGELOG;
+- TODO;
+- FIXME;
+- task files;
+- previous reports;
+- API documentation;
+- protocol documentation;
+- benchmark files;
+- profiling files;
+- build configuration;
+- environment configuration.
+
+4. Understand the product’s actual purpose.
+
+5. Identify the main user and system flows.
+
+6. Identify the flows most sensitive to latency.
+
+7. Identify which operations occur:
+
+- during startup;
+- on every frame;
+- on every interaction;
+- on every state update;
+- on every request;
+- on every message;
+- on every query;
+- in the background;
+- inside loops;
+- in periodic tasks;
+- during connection;
+- during reconnection;
+- during synchronization;
+- during shutdown.
+
+==================================================
+3. REPOSITORY STATE
+==================================================
+
+Before the analysis, run:
+
+git status --short
+git branch --show-current
+git rev-parse HEAD
+
+Record:
+
+- analyzed branch;
+- analyzed commit;
+- pre-existing modified files;
+- untracked files;
+- initial repository state.
+
+At the end, run again:
+
+git status --short
+
+Confirm that no file was changed except:
+
+<project_name>_performance_enhancement.md
+
+If tools generate caches or temporary artifacts, record them in the report.
+
+==================================================
+4. EVIDENCE CLASSIFICATION
+==================================================
+
+Every finding must be labeled as one of the following:
+
+CONFIRMED
+
+There is direct evidence from:
+
+- source code;
+- benchmark;
+- profiler;
+- test;
+- log;
+- execution;
+- metric;
+- reproduced behavior.
+
+LIKELY
+
+A pattern has a high probability of causing performance degradation, but it still requires measurement.
+
+HYPOTHESIS
+
+A plausible risk exists, but there is not enough evidence to state that it currently occurs.
+
+REQUIRES REAL-WORLD VALIDATION
+
+Validation depends on:
+
+- physical hardware;
+- a real device;
+- a real network;
+- a release build;
+- a large dataset;
+- a long-running session;
+- multiple users;
+- multiple devices;
+- a production environment;
+- a specific operating system.
+
+ARCHITECTURAL DECISION
+
+The finding is not necessarily a defect, but it has performance trade-offs that must be documented.
+
+Do not invent results.
+
+Do not present estimates as measurements.
+
+Do not claim percentage gains without benchmarks.
+
+==================================================
+5. SAFE DIAGNOSTICS
+==================================================
+
+Run only safe and non-destructive commands.
+
+Choose commands according to the detected technology stack.
+
+When applicable, run:
+
+- analyzer;
+- linter;
+- existing tests;
+- debug build;
+- profile build;
+- release build;
+- existing benchmarks;
+- build-size analysis;
+- profiling tools already available in the project or environment;
+- static-analysis tools;
+- dependency-analysis tools;
+- memory-diagnostic tools;
+- CPU-diagnostic tools;
+- tracing tools;
+- existing startup tests.
+
+Do not install tools without authorization.
+
+Do not modify code to add instrumentation.
+
+Do not disable tests.
+
+Do not change configuration files to make commands pass.
+
+For every command, record:
+
+- full command;
+- working directory;
+- objective;
+- approximate duration;
+- result;
+- warnings;
+- errors;
+- limitations.
+
+If a command fails, record:
+
+- command;
+- error;
+- likely cause;
+- whether the cause belongs to the environment or the project;
+- what could not be validated because of the failure.
+
+==================================================
+6. AUDIT OBJECTIVE
+==================================================
+
+Find anything that may cause:
+
+- high latency;
+- delayed responses;
+- delay between input and action;
+- freezes;
+- hangs;
+- dropped frames;
+- jank;
+- excessive CPU usage;
+- excessive GPU usage;
+- excessive RAM usage;
+- memory leaks;
+- excessive garbage collection;
+- memory pressure;
+- excessive disk usage;
+- excessive network usage;
+- excessive battery consumption;
+- slow startup;
+- slow screens;
+- repeated loading;
+- expensive queries;
+- duplicated processing;
+- repeated calculations;
+- excessive serialization;
+- unnecessary copies;
+- unnecessary loops;
+- inefficient algorithms;
+- excessive polling;
+- excessive timers;
+- excessive logging;
+- unbounded queues;
+- lack of backpressure;
+- contention;
+- deadlocks;
+- starvation;
+- blocking tasks;
+- synchronous operations on critical paths;
+- unnecessary sequential awaits;
+- poorly applied parallelism;
+- too many threads;
+- too many tasks;
+- inappropriate caching;
+- unbounded caching;
+- missing caching where it is justified;
+- incorrect cache invalidation;
+- N+1 queries;
+- missing indexes;
+- in-memory filtering;
+- missing pagination;
+- missing lazy loading;
+- non-virtualized lists;
+- excessive rebuilds;
+- heavy assets;
+- unoptimized images;
+- heavy dependencies;
+- excessive build size;
+- debug code included in release builds;
+- progressive degradation during use;
+- degradation as data volume increases;
+- degradation with multiple users;
+- degradation with multiple connections;
+- degradation on low-end hardware.
+
+==================================================
+7. LATENCY
+==================================================
+
+Map every flow where fast response is important.
+
+Examples:
+
+- touch to visual feedback;
+- click to response;
+- keyboard input to action;
+- mouse movement to update;
+- remote command to execution;
+- screen opening;
+- application startup;
+- connection;
+- discovery;
+- authentication;
+- synchronization;
+- query;
+- save;
+- reconnection;
+- message sending;
+- message receiving;
+- rendering;
+- state update.
+
+For each flow, decompose:
+
+Total latency =
+input
++ local processing
++ queueing
++ serialization
++ transmission
++ network
++ remote processing
++ response
++ deserialization
++ state update
++ rendering
+
+Report:
+
+- stages;
+- participating components;
+- waits;
+- possible bottlenecks;
+- confirmed bottlenecks;
+- jitter risk;
+- spike risk;
+- degradation risk;
+- measurement points;
+- required benchmark;
+- proposed target.
+
+When no measurement exists, clearly state that the target is proposed.
+
+Do not invent current latency values.
+
+When possible, analyze:
+
+- mean;
+- minimum;
+- maximum;
+- p50;
+- p95;
+- p99;
+- worst case.
+
+==================================================
+8. STARTUP
+==================================================
+
+Analyze:
+
+- cold start;
+- warm start;
+- resume;
+- time to first screen;
+- time to first useful interaction;
+- service initialization;
+- plugin initialization;
+- configuration loading;
+- data loading;
+- database connection;
+- network connection;
+- migrations;
+- file reading;
+- asset loading;
+- tasks executed too early;
+- duplicated initialization;
+- heavy dependencies;
+- waits on network resources;
+- sequential loading;
+- excessive concurrent loading.
+
+Identify what can:
+
+- be deferred;
+- be loaded on demand;
+- be executed in parallel;
+- be removed from the critical path;
+- be cached;
+- be simplified.
+
+==================================================
+9. UI, RENDERING, AND RESPONSIVENESS
+==================================================
+
+Analyze:
+
+- excessive rebuilds;
+- excessive recompositions;
+- oversized components;
+- large areas updated unnecessarily;
+- calculations during rendering;
+- large lists;
+- missing virtualization;
+- missing pagination;
+- complex layouts;
+- heavy images;
+- image decoding;
+- shadows;
+- blur;
+- transparency;
+- clipping;
+- shaders;
+- animations;
+- high-frequency updates;
+- broad listeners;
+- global state;
+- work on the UI thread;
+- delay between input and feedback;
+- dropped frames;
+- jank;
+- short freezes;
+- behavior on small screens;
+- behavior at high resolutions;
+- behavior with multiple monitors;
+- behavior at different refresh rates.
+
+Consider these theoretical frame budgets:
+
+- 16.67 ms per frame at 60 Hz;
+- 11.11 ms per frame at 90 Hz;
+- 8.33 ms per frame at 120 Hz.
+
+Do not treat these values as project measurements.
+
+==================================================
+10. CPU AND PROCESSING
+==================================================
+
+Look for:
+
+- high-complexity algorithms;
+- nested loops;
+- repeated linear searches;
+- repeated sorting;
+- repeated parsing;
+- repeated conversions;
+- expensive regular expressions;
+- repeated serialization;
+- cryptography on critical paths;
+- compression on critical paths;
+- calculations inside UI rendering;
+- calculations inside getters;
+- polling;
+- busy waiting;
+- duplicated operations;
+- work performed even when nothing changed;
+- processing performed too frequently;
+- processing that could be incremental;
+- processing that could be moved to the background.
+
+For every item, evaluate:
+
+- frequency;
+- data volume;
+- complexity;
+- expected growth;
+- current impact;
+- future impact;
+- latency impact;
+- resource-consumption impact.
+
+==================================================
+11. MEMORY AND RESOURCE LIFECYCLE
+==================================================
+
+Analyze:
+
+- frequent allocations;
+- temporary objects;
+- buffers;
+- copied lists;
+- copied strings;
+- unbounded caches;
+- unbounded queues;
+- unbounded histories;
+- listeners;
+- subscriptions;
+- streams;
+- controllers;
+- timers;
+- sockets;
+- files;
+- handles;
+- images;
+- native resources;
+- closures retaining references;
+- global objects;
+- singletons;
+- pages kept alive;
+- undisposed resources;
+- unclosed resources;
+- memory growth during long-running sessions;
+- memory growth after repeated connection and disconnection;
+- memory growth after repeatedly opening and closing screens;
+- pressure on the garbage collector.
+
+Verify whether resources are:
+
+- created;
+- reused;
+- closed;
+- disposed;
+- canceled;
+- removed;
+- deallocated.
+
+Propose memory tests for:
+
+- 10 minutes;
+- 1 hour;
+- several hours;
+- repeated screen opening;
+- repeated connection;
+- repeated reconnection;
+- background and foreground transitions;
+- large data volumes;
+- multiple clients.
+
+==================================================
+12. CONCURRENCY AND ASYNCHRONOUS EXECUTION
+==================================================
+
+Look for:
+
+- unnecessary sequential awaits;
+- asynchronous operations without await;
+- unsafe fire-and-forget operations;
+- duplicated tasks;
+- race conditions;
+- broad locks;
+- contention;
+- deadlocks;
+- starvation;
+- missing cancellation;
+- missing timeouts;
+- inappropriate timeouts;
+- unlimited retries;
+- retries without backoff;
+- stale responses overwriting newer responses;
+- queues without priority;
+- unbounded queues;
+- missing backpressure;
+- excessive parallelism;
+- insufficient parallelism;
+- concurrent access to shared state;
+- excessive event dispatching;
+- reentrancy.
+
+Evaluate the impact on:
+
+- average latency;
+- p95;
+- p99;
+- jitter;
+- CPU;
+- memory;
+- stability.
+
+==================================================
+13. NETWORK AND COMMUNICATION
+==================================================
+
+Analyze:
+
+- connection establishment;
+- handshake;
+- TLS;
+- authentication;
+- discovery;
+- keep-alive;
+- sockets;
+- HTTP;
+- WebSocket;
+- TCP;
+- UDP;
+- IPC;
+- RPC;
+- serialization;
+- deserialization;
+- compression;
+- payload size;
+- packet frequency;
+- batching;
+- redundant messages;
+- acknowledgments;
+- retry;
+- timeout;
+- heartbeat;
+- polling;
+- flow control;
+- backpressure;
+- reconnection;
+- packet-loss handling;
+- duplicate-message handling;
+- out-of-order messages.
+
+Look for:
+
+- a new connection created per operation;
+- missing pooling;
+- unnecessarily large payloads;
+- excessive JSON use on critical paths;
+- multiple copies of the same payload;
+- transmission even when no state changed;
+- missing debounce;
+- missing throttle;
+- continuous discovery;
+- aggressive reconnection;
+- reconnection loops;
+- logging of every packet;
+- unnecessary broadcasts.
+
+Consider:
+
+- local network;
+- good Wi-Fi;
+- congested Wi-Fi;
+- high latency;
+- packet loss;
+- jitter;
+- VPN;
+- firewall;
+- network switching;
+- device suspension;
+- multiple clients;
+- unavailable server.
+
+==================================================
+14. DATABASE, PERSISTENCE, AND DISK
+==================================================
+
+Look for:
+
+- N+1 queries;
+- missing indexes;
+- inappropriate indexes;
+- unbounded queries;
+- full-table reads;
+- in-memory filtering;
+- in-memory sorting;
+- in-memory aggregation;
+- repeated individual writes;
+- missing batching;
+- missing transactions;
+- long transactions;
+- locks;
+- expensive migrations;
+- entire files rewritten unnecessarily;
+- excessive flushing;
+- repeated reads;
+- missing pagination;
+- missing prepared statements;
+- repeatedly opened and closed connections;
+- disk access on the main/UI thread;
+- serialization of large structures.
+
+Consider growth at:
+
+- 100 records;
+- 1,000 records;
+- 10,000 records;
+- 100,000 records;
+- months of history;
+- years of history.
+
+Do not claim degradation without evidence.
+
+Explain how to validate it.
+
+==================================================
+15. CACHE
+==================================================
+
+Analyze:
+
+- what is cached;
+- where it is cached;
+- size;
+- lifetime;
+- key design;
+- granularity;
+- invalidation;
+- concurrency;
+- consistency;
+- growth;
+- memory impact;
+- latency impact;
+- stale-data risk;
+- cache-stampede risk;
+- duplication risk.
+
+Classify each cache as:
+
+- appropriate;
+- missing;
+- excessive;
+- unbounded;
+- incorrectly invalidated;
+- low-value;
+- harmful;
+- requires measurement.
+
+Do not recommend caching automatically.
+
+Report:
+
+- cost;
+- benefit;
+- risk;
+- complexity;
+- conditions under which it is justified.
+
+==================================================
+16. BATTERY AND BACKGROUND EXECUTION
+==================================================
+
+When applicable, analyze:
+
+- timers;
+- polling;
+- sensors;
+- Bluetooth;
+- Wi-Fi;
+- persistent sockets;
+- wake locks;
+- background services;
+- frequent updates;
+- continuous animations;
+- telemetry;
+- logs;
+- disk writes;
+- reconnection;
+- location;
+- notifications;
+- processing without user interaction.
+
+Verify what continues running when:
+
+- the screen is hidden;
+- the application is minimized;
+- the device is locked;
+- the connection is lost;
+- the user is inactive;
+- the application is in the background.
+
+==================================================
+17. DEPENDENCIES
+==================================================
+
+Analyze:
+
+- heavy dependencies;
+- duplicated dependencies;
+- partially used libraries;
+- unnecessary wrappers;
+- outdated versions;
+- abandoned packages;
+- libraries with high startup cost;
+- memory cost;
+- CPU cost;
+- build-size cost;
+- native plugins;
+- bridges;
+- platform channels;
+- reflection;
+- FFI;
+- interoperability;
+- cross-runtime serialization.
+
+For every critical dependency, report:
+
+- purpose;
+- cost;
+- risk;
+- impact;
+- alternative;
+- replacement effort;
+- recommendation.
+
+Do not recommend replacement without justification.
+
+==================================================
+18. BUILD AND RELEASE
+==================================================
+
+Analyze:
+
+- debug builds;
+- profile builds;
+- release builds;
+- JIT;
+- AOT;
+- compiler optimizations;
+- minification;
+- tree shaking;
+- symbols;
+- assertions;
+- logging;
+- debug-only code;
+- assets;
+- fonts;
+- images;
+- native libraries;
+- included architectures;
+- duplicated files;
+- installer size;
+- installed size;
+- startup time;
+- build time;
+- platform-specific configuration.
+
+Look for:
+
+- unnecessary files;
+- unused assets;
+- unused dependencies;
+- test code included in release;
+- active logs in release;
+- inconsistent configuration;
+- behavior differences between debug and release.
+
+==================================================
+19. LOGGING AND OBSERVABILITY
+==================================================
+
+Analyze:
+
+- logs inside loops;
+- logs per frame;
+- logs per packet;
+- logs per event;
+- synchronous writes;
+- serialization for logging;
+- log files without rotation;
+- excessive telemetry;
+- telemetry on critical paths;
+- missing timestamps;
+- missing correlation identifiers;
+- missing metrics;
+- missing traces.
+
+Verify whether the project can measure:
+
+- startup;
+- request latency;
+- processing latency;
+- rendering;
+- queries;
+- queues;
+- memory;
+- CPU;
+- errors;
+- reconnections;
+- retries;
+- timeouts;
+- message loss.
+
+Propose instrumentation, but do not implement it.
+
+==================================================
+20. SCALABILITY
+==================================================
+
+Analyze behavior with:
+
+- more users;
+- more devices;
+- more connections;
+- more messages;
+- more records;
+- more files;
+- more history;
+- more simultaneous tasks;
+- longer runtime;
+- weaker hardware;
+- slower networks;
+- larger screens;
+- higher refresh rates.
+
+Identify:
+
+- linear growth;
+- quadratic growth;
+- contention points;
+- global resources;
+- critical singletons;
+- unbounded queues;
+- unbounded caches;
+- unpaginated lists;
+- central bottlenecks;
+- implicit limits;
+- operations that become progressively slower.
+
+==================================================
+21. TECHNOLOGY-SPECIFIC ANALYSIS
+==================================================
+
+Adapt the audit to the actual technology stack.
+
+For Flutter/Dart, pay special attention to:
+
+- excessive rebuilds;
+- oversized widgets;
+- inappropriate absence of const;
+- overly broad state watching;
+- global providers or notifiers;
+- broad setState calls;
+- calculations inside build methods;
+- non-virtualized lists;
+- excessive shrinkWrap usage;
+- IntrinsicHeight;
+- IntrinsicWidth;
+- images without proper dimensions;
+- image decoding;
+- animations;
+- CustomPainter;
+- clipping;
+- opacity;
+- saveLayer;
+- frequent platform-channel calls;
+- isolates;
+- compute;
+- streams;
+- timers;
+- undisposed controllers;
+- plugins;
+- differences between debug, profile, and release.
+
+For .NET/C#, pay special attention to:
+
+- .Result;
+- .Wait();
+- synchronous blocking;
+- inappropriate async/await usage;
+- LINQ on critical paths;
+- allocations;
+- boxing;
+- strings;
+- inappropriate Task.Run usage;
+- ThreadPool usage;
+- locks;
+- recreated HttpClient instances;
+- sockets;
+- streams;
+- buffers;
+- serialization;
+- reflection;
+- logging;
+- Large Object Heap;
+- IDisposable;
+- unsubscribed events;
+- trimming;
+- ReadyToRun;
+- single-file publishing;
+- self-contained publishing.
+
+For Web/JavaScript/TypeScript, pay special attention to:
+
+- excessive bundle size;
+- tree shaking;
+- re-rendering;
+- event-loop blocking;
+- long tasks;
+- layout thrashing;
+- network waterfalls;
+- duplicated requests;
+- assets;
+- images;
+- HTTP caching;
+- memory leaks;
+- listeners;
+- WebSockets;
+- workers;
+- lazy loading.
+
+For backend or database projects, pay special attention to:
+
+- N+1 queries;
+- pooling;
+- indexes;
+- locks;
+- transactions;
+- queues;
+- caching;
+- timeouts;
+- retries;
+- backpressure;
+- payload size;
+- pagination;
+- concurrency;
+- observability.
+
+Do not include recommendations that are irrelevant to the detected stack.
+
+==================================================
+22. PRIORITIZATION
+==================================================
+
+Classify every finding as:
+
+P0 — Fix immediately
+
+Examples:
+
+- deadlock;
+- infinite loop;
+- severe leak;
+- unbounded growth;
+- excessive CPU usage without justification;
+- latency that makes a primary flow unusable;
+- recurring freeze;
+- unbounded queue with real operational risk;
+- reconnection loop;
+- resource usage capable of crashing the system;
+- performance that makes the product unusable.
+
+P1 — Fix before beta or release
+
+Examples:
+
+- noticeable latency in a primary flow;
+- frequent jank;
+- excessively slow startup;
+- heavy work on the main/UI thread;
+- relevant N+1 queries;
+- expensive queries;
+- full loading of growing datasets;
+- missing pagination;
+- unnecessary polling;
+- unreleased resources;
+- unbounded cache;
+- retries without backoff;
+- missing timeout;
+- real degradation with realistic data volume.
+
+P2 — Important improvement
+
+Examples:
+
+- meaningful rebuild reduction;
+- meaningful allocation reduction;
+- query optimization;
+- lazy loading;
+- batching;
+- safer or more effective parallelism;
+- better caching;
+- improved observability;
+- build-size reduction;
+- prevention of a likely future bottleneck.
+
+P3 — Future work or polish
+
+Examples:
+
+- micro-optimization;
+- barely perceptible improvement;
+- optimization for distant scale;
+- optional refinement;
+- supplementary benchmark;
+- additional instrumentation.
+
+For every finding, report:
+
+- priority;
+- title;
+- category;
+- evidence status;
+- file;
+- line;
+- description;
+- user impact;
+- technical impact;
+- latency impact;
+- CPU impact;
+- GPU impact;
+- memory impact;
+- network impact;
+- disk impact;
+- battery impact;
+- frequency;
+- probability;
+- effort;
+- implementation risk;
+- risk of not fixing;
+- likely cause;
+- simple solution;
+- robust solution;
+- dependencies;
+- validation method;
+- acceptance criterion.
+
+Use these scales:
+
+Impact:
+- critical;
+- high;
+- medium;
+- low.
+
+Probability:
+- high;
+- medium;
+- low.
+
+Effort:
+- XS;
+- S;
+- M;
+- L;
+- XL.
+
+==================================================
+23. REPORT FORMAT
+==================================================
+
+Save the report as:
+
+<project_name>_performance_enhancement.md
+
+Use this structure:
+
+# Performance Audit and Enhancement Plan
+
+## 1. Executive Summary
+
+- project name;
+- verdict;
+- current state;
+- largest bottleneck;
+- largest risk;
+- largest quick win;
+- largest future risk;
+- confidence level;
+- immediate recommendation.
+
+## 2. Analyzed Scope
+
+- directories;
+- modules;
+- files;
+- platforms;
+- flows;
+- commands;
+- tests;
+- builds;
+- benchmarks;
+- profiling;
+- limitations.
+
+## 3. Repository State
+
+- branch;
+- commit;
+- initial status;
+- final status;
+- created files;
+- confirmation that source code was not modified.
+
+## 4. Technical Map
+
+- stack;
+- architecture;
+- modules;
+- runtime;
+- database;
+- network;
+- state;
+- cache;
+- concurrency;
+- build;
+- critical dependencies.
+
+## 5. Baseline
+
+List only metrics that were actually collected:
+
+- startup;
+- CPU;
+- GPU;
+- RAM;
+- frames;
+- queries;
+- network;
+- disk;
+- build size;
+- p50;
+- p95;
+- p99.
+
+When no baseline exists, write clearly:
+
+“Not measured.”
+
+## 6. Top 10 Findings
+
+For each:
+
+- priority;
+- title;
+- evidence;
+- impact;
+- cause;
+- recommendation;
+- validation.
+
+## 7. P0 Findings
+
+Use the complete format defined above.
+
+## 8. P1 Findings
+
+Use the same format.
+
+## 9. P2 Findings
+
+Use the same format.
+
+## 10. P3 Findings
+
+Use the same format.
+
+## 11. Findings by Resource
+
+Separate into:
+
+- latency;
+- CPU;
+- GPU;
+- memory;
+- garbage collection;
+- network;
+- disk;
+- battery;
+- startup;
+- rendering;
+- database;
+- concurrency;
+- build;
+- size;
+- scalability.
+
+## 12. Confirmed Bottlenecks
+
+List only bottlenecks supported by sufficient evidence.
+
+## 13. Likely Bottlenecks
+
+List bottlenecks with high probability but incomplete measurement.
+
+## 14. Hypotheses
+
+List anything that still depends on measurement.
+
+## 15. Most Critical Files
+
+For each:
+
+- responsibility;
+- execution frequency;
+- risks;
+- findings;
+- recommendation.
+
+## 16. Critical Dependencies
+
+For each:
+
+- purpose;
+- cost;
+- impact;
+- risk;
+- alternative;
+- recommendation.
+
+## 17. Quick Wins
+
+For each:
+
+- problem;
+- solution;
+- expected impact;
+- effort;
+- risk;
+- likely files;
+- validation.
+
+## 18. Proposed Targets
+
+For each metric:
+
+- measured current value;
+- unknown current value;
+- minimum target;
+- desirable target;
+- measurement method.
+
+## 19. Improvement Plan by Priority
+
+Separate into:
+
+- P0;
+- P1;
+- P2;
+- P3.
+
+For every improvement:
+
+- source finding;
+- objective;
+- strategy;
+- steps;
+- likely files;
+- dependencies;
+- risk;
+- rollback;
+- effort;
+- benchmark before;
+- benchmark after;
+- acceptance criterion;
+- required regression testing.
+
+## 20. Impact-versus-Effort Matrix
+
+Create a table with:
+
+- improvement;
+- priority;
+- impact;
+- effort;
+- risk;
+- dependencies;
+- recommendation.
+
+Classify each as:
+
+- do immediately;
+- schedule;
+- measure first;
+- postpone;
+- not recommended.
+
+## 21. Recommended Implementation Order
+
+Define the rational execution order, for example:
+
+1. establish a baseline;
+2. add or improve measurement;
+3. fix P0 issues;
+4. reduce critical-path latency;
+5. reduce work on the main/UI thread;
+6. fix expensive queries;
+7. fix memory issues;
+8. optimize network communication;
+9. reduce rebuilds;
+10. optimize build output;
+11. run regression testing.
+
+Adapt the order to the actual project.
+
+## 22. Delivery Roadmap
+
+Create small, independent deliveries.
+
+For each:
+
+- objective;
+- tasks;
+- likely files;
+- dependencies;
+- risk;
+- metrics;
+- validation.
+
+## 23. Benchmark Plan
+
+For every benchmark:
+
+- objective;
+- environment;
+- hardware;
+- build type;
+- input;
+- volume;
+- warm-up;
+- duration;
+- repetitions;
+- metrics;
+- percentiles;
+- success criterion.
+
+## 24. Profiling Plan
+
+For every flow:
+
+- tool;
+- scenario;
+- duration;
+- metrics;
+- capture points;
+- comparison method;
+- expected result.
+
+## 25. Real-Environment Tests
+
+Separate into:
+
+- low-end hardware;
+- mid-range hardware;
+- high-end hardware;
+- good network;
+- poor network;
+- unstable network;
+- long-running session;
+- large dataset;
+- multiple clients;
+- background execution;
+- release build;
+- different platforms.
+
+## 26. Optimization Risks
+
+Consider:
+
+- premature optimization;
+- increased complexity;
+- functional regression;
+- security regression;
+- cache inconsistency;
+- trading CPU for memory;
+- trading memory for network;
+- improving the average while worsening p99;
+- unrepresentative benchmarks;
+- platform-specific behavior differences.
+
+## 27. Improvements Not Recommended
+
+List optimizations that look attractive but lack enough evidence.
+
+For each:
+
+- proposal;
+- apparent benefit;
+- risk;
+- required evidence;
+- condition for reconsideration.
+
+## 28. Completion Criteria
+
+Define criteria such as:
+
+- no open P0 findings;
+- critical P1 findings resolved;
+- baseline recorded;
+- reproducible benchmarks;
+- stable memory usage;
+- latency within target;
+- no functional regression;
+- validated release build;
+- documented results.
+
+## 29. Next Best Action
+
+Identify only the single most rational next action.
+
+## 30. Conclusion
+
+State clearly:
+
+- what is already good;
+- what is slow;
+- what is likely to become slow;
+- what has not yet been measured;
+- largest bottleneck;
+- largest risk;
+- what should be fixed first;
+- whether performance is adequate for beta;
+- whether performance is adequate for external users.
+
+==================================================
+24. RECOMMENDATION RULES
+==================================================
+
+Do not give generic recommendations.
+
+Do not merely say:
+
+- use caching;
+- use async;
+- use threads;
+- reduce rebuilds;
+- add indexes;
+- use lazy loading;
+- use compression;
+- change programming languages.
+
+Every recommendation must explain:
+
+1. which bottleneck it addresses;
+2. what evidence supports it;
+3. where it should be applied;
+4. why it should be applied;
+5. which resource it reduces;
+6. which resource it may increase;
+7. implementation effort;
+8. implementation risk;
+9. how to measure before;
+10. how to measure after;
+11. what criterion determines success.
+
+==================================================
+25. FINAL VERIFICATION
+==================================================
+
+Before finishing:
+
+1. Confirm that the entire project was analyzed.
+
+2. Confirm that critical flows were analyzed.
+
+3. Confirm that every finding includes:
+
+- priority;
+- evidence;
+- impact;
+- effort;
+- risk;
+- recommendation;
+- validation.
+
+4. Confirm that hypotheses are explicitly identified.
+
+5. Confirm that no metrics were invented.
+
+6. Confirm that source code was not modified.
+
+7. Run:
+
+git status --short
+
+8. Confirm that only this file was created or modified:
+
+<project_name>_performance_enhancement.md
+
+9. Open and review the report.
+
+10. Verify that it contains no:
+
+- empty sections;
+- placeholders;
+- literal “project_name” text;
+- unreplaced examples;
+- generic recommendations;
+- estimates presented as facts;
+- invented percentage gains;
+- findings without evidence;
+- priorities without justification.
+
+==================================================
+26. FINAL CHAT RESPONSE
+==================================================
+
+After saving the report, reply in the chat with only:
+
+1. project name;
+2. created file;
+3. analyzed branch;
+4. analyzed commit;
+5. number of P0 findings;
+6. number of P1 findings;
+7. number of P2 findings;
+8. number of P3 findings;
+9. commands executed;
+10. commands that failed;
+11. limitations;
+12. largest bottleneck;
+13. largest quick win;
+14. next recommended action;
+15. confirmation that no source-code file was modified.
+
+Do not apply any fix until I explicitly authorize it.
