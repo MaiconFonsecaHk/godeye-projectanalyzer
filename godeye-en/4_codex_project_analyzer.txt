@@ -853,3 +853,125 @@ Clearly state:
 - Do not make corrections until I approve.
 
 At the end, respond as if you were delivering a professional report to decide the project's next priorities.
+
+==================================================
+7. MANDATORY REPORT SAVING
+==================================================
+
+After completing the audit, save the entire generated report as a Markdown file in the project root.
+
+The filename must follow this format:
+
+<project_name>_analyze_result.md
+
+Automatically determine the actual project name using the following sources, in this order:
+
+1. the main project manifest;
+2. a project or solution file;
+3. pubspec.yaml;
+4. package.json;
+5. Cargo.toml;
+6. pyproject.toml;
+7. pom.xml;
+8. build.gradle;
+9. *.csproj or *.sln files;
+10. README;
+11. repository name;
+12. root-directory name.
+
+Normalize the name for use in the filename:
+
+- replace spaces with underscores;
+- remove invalid filename characters;
+- preserve a readable name;
+- do not use the literal text “project_name”.
+
+Example:
+
+Remotium_analyze_result.md
+
+The file must include the complete contents of the audit:
+
+- executive summary;
+- analyzed scope;
+- project map;
+- commands executed;
+- tests executed;
+- limitations;
+- Top 10 findings;
+- P0 findings;
+- P1 findings;
+- P2 findings;
+- P3 findings;
+- findings by area;
+- analyzed flows;
+- critical files;
+- metrics;
+- hidden risks;
+- remediation plan;
+- test matrix;
+- pending product decisions;
+- final conclusion.
+
+Do not summarize, shorten, or omit content when saving the report.
+
+The file contents must correspond to the complete report requested by this prompt.
+
+The only permitted modification during this audit is creating or updating:
+
+<project_name>_analyze_result.md
+
+Do not modify:
+
+- source code;
+- configuration files;
+- dependencies;
+- existing documentation;
+- build files;
+- test files;
+- environment files.
+
+Before starting, run:
+
+git status --short
+git branch --show-current
+git rev-parse HEAD
+
+Record in the report:
+
+- analyzed branch;
+- analyzed commit;
+- initial repository state;
+- files that were already modified before the audit.
+
+At the end, run again:
+
+git status --short
+
+Confirm that no project file was modified except:
+
+<project_name>_analyze_result.md
+
+Before finishing:
+
+1. confirm that the file was created;
+2. open and review the file;
+3. confirm that the report is complete;
+4. verify that there are no empty sections;
+5. verify that there are no placeholders;
+6. verify that the literal text “project_name” was replaced;
+7. confirm that no source-code file was modified.
+
+In the final chat response, report:
+
+- identified project name;
+- path of the created file;
+- analyzed branch;
+- analyzed commit;
+- number of P0 findings;
+- number of P1 findings;
+- number of P2 findings;
+- number of P3 findings;
+- commands that failed;
+- important limitations;
+- confirmation that no source-code file was modified.
